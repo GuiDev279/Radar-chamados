@@ -1,0 +1,119 @@
+.cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    height: 80px;
+    gap: 20px;
+    position: relative;
+}
+
+.cabecalho .titulo{
+    color: #FFF;
+}
+
+.cabecalho .home{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.cabecalho .home:hover{
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.cabecalho .home{
+    margin-right: 15px;
+    animation: home infinite 20s linear;
+}
+
+@keyframes home {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container{
+    background-image: url(../imagens/ark.fundo.png);
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.tabela-container{
+    display: flex;
+    padding: 20px;
+    gap: 25px;
+}
+
+.tabela-container #adicionar{
+    background: linear-gradient(to bottom, #aaa, #666);
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #333, -3px -3px 5px #999;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.tabela-container #adicionar:hover{
+    background: linear-gradient(to bottom, #666, #aaa);
+    transform: scale(1.05);
+}
+
+
+.tabela-container .tabela{
+    border-collapse: collapse;
+}
+
+input{
+    width: 100%;
+}
+
+.tabela-container .tabela tr,
+.tabela-container .tabela th{
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela-chamados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela-agendados{
+    border-collapse: collapse;
+}
+
+.tabela-chamados .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabela-chamados th,
+.tabela-chamados td{
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.lixeira {
+  cursor: pointer;
+  font-size: 14px;   /* pode diminuir o tamanho */
+}
+
+.lixeira:hover {
+  color: red;        /* fica vermelha ao passar o mouse */
+}

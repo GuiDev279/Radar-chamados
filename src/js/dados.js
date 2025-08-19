@@ -3,7 +3,7 @@ function preencherTabela(dados) {
     let tbody = document.querySelector(".tabela tbody");
     tbody.innerHTML = "";
 
-    let colunas = ["CHAMADO", "NOME", "ABERTURA", "ULTIMA AÇÃO", "FECHAMENTO", "ESTADO"];
+    let colunas = ["CHAMADO", "NOME", "ABERTURA", "ULTIMA AÇÃO", "FECHAMENTO", "ESTADO", "MOTIVO"];
 
     dados.forEach(row => {
         let tr = document.createElement("tr");

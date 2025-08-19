@@ -29,15 +29,15 @@ btnAdicionar.addEventListener("click", () => {
     // 🔎 buscar dados na base
     const dadosBase = buscarDadosNaBase(chamado);
 
-    const novoChamado = { 
-        data: dataFormatada, 
-        chamado, 
-        hora, 
-        local, 
-        motivo: dadosBase?.ULTIMA_AÇÃO || "Não encontrado", 
-        status: dadosBase?.ESTADO || "Não encontrado" 
+    const novoChamado = {
+        data: dataFormatada,
+        chamado,
+        hora,
+        local,
+        motivo: dadosBase?.MOTIVO || "Não encontrado",
+        status: dadosBase?.ESTADO || "Não encontrado"
     };
-    
+
     chamados.push(novoChamado);
 
     salvar();
@@ -81,9 +81,9 @@ function renderTabela() {
             <td>${c.hora}</td>
             <td>${c.local}</td>
             <td>
-                <input class="uppercase" type="text" value="${c.motivo}" 
-                       oninput="atualizarMotivo(${index}, this.value)" 
-                       style="width:100%; background:transparent; border:none; outline:none;">
+                <div style="white-space:nowrap; overflow-x:auto; max-width:200px;">
+                    ${c.motivo}
+                </div>
             </td>
             <td style="color:${cor}">${c.status}</td>
         `;
