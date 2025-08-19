@@ -1,0 +1,29 @@
+*{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+input {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    text-align: left;
+    background: none;
+}
+
+
+
+select {
+  background: transparent;   /* tira o fundo */
+  border: none;              /* remove a borda */
+  outline: none;             /* remove contorno ao clicar */
+  font-size: 14px;           /* você controla o tamanho da fonte */
+  color: #000;               /* cor do texto */
+  cursor: pointer;           /* mãozinha ao passar o mouse */
+}

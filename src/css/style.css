@@ -1,0 +1,152 @@
+.cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    height: 80px;
+}
+
+
+
+.cabecalho nav ul{
+    display: flex;
+    gap: 20px; 
+    text-align: center;
+    
+}
+
+.cabecalho nav ul  li{
+    display: flex;
+    height: 50px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    gap: 8px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 4px 3px 3px rgba(255,255,255,0.8);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.cabecalho nav ul  li:hover{
+    transform: scale(1.05);
+    background-color: #333;
+}
+
+.cabecalho .ark{
+    margin-right: 15px;
+    animation: ark infinite 20s linear;
+}
+
+@keyframes ark {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container{
+    background-image: url("../imagens/ark.fundo.png");
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.tabela-container{
+    display: flex;
+    padding: 20px;
+    gap: 25px;
+}
+
+.tabela-container .adicionar{
+    background: linear-gradient(to bottom, #aaa, #666);
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #333, -3px -3px 5px #999;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.tabela-container .adicionar:hover{
+    background: linear-gradient(to bottom, #666, #aaa);
+    transform: scale(1.05);
+}
+
+
+.container .tabela{
+    border-collapse: collapse;
+}
+
+.tabela-head th,
+.tabela-head td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela-chamados{
+    border-collapse: collapse;
+}
+
+.tabela-chamados .titulo-tabela{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+.tabela-chamados th,
+.tabela-chamados td{
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.titulo-tabela .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    min-height: 10vh;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+}
+
+.lixeira {
+  cursor: pointer;
+  font-size: 14px;   /* pode diminuir o tamanho */
+}
+
+.lixeira:hover {
+  color: red;        /* fica vermelha ao passar o mouse */
+}
+
+input.uppercase {
+  text-transform: uppercase;
+  text-align: center;
+}

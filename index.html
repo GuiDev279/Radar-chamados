@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./src/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Radar Chamados</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="./src/imagens/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li>
+                    ESTOQUE
+                </li>
+                <li>AGENDADOS</li>
+                <li>VIDA</li>
+                <li>BASE DE DADOS</li>
+            </ul>
+        </nav>
+        <img class="ark" src="./src/imagens/favicon.ico" alt="logo-2">
+    </header>
+
+    <main class="container">
+        <div class="tabela-container">
+            <table class="tabela">
+                <thead class="tabela-head">
+                    <tr>
+                        <th>DATA</th>
+                        <td><input type="date" name="data" id="data"></td>
+                    </tr>
+                    <tr>
+                        <th>CHAMADO</th>
+                        <td>
+                            <input type="number" name="chamado" pattern="\\d{6}" maxlength="6" placeholder="número do chamado" id="chamado">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>HORA</th>
+                        <td><input type="time" name="hora" title="Informe a hora" id="hora"></td>
+                    </tr>
+                    <tr>
+                        <th>LOCAL</th>
+                        <td>
+                            <input list="locais" name="local" placeholder="Selecione o local" id="local">
+                                <datalist id="locais">
+                                    <option value="SEMINARIO"></option>
+                                    <option value="PISA"></option>
+                                    <option value="CEO"></option>
+                                    <option value="SIGMA"></option>
+                                    <option value="PIEDADE"></option>
+                                    <option value="LUXEMBURGO"></option>
+                                    <option value="TRJ"></option>
+                                    <option value="LOJA/DF"></option>
+                                    <option value="LOJA/GO"></option>
+                                    <option value="LOJA/SP"></option>
+                                    <option value="LOJA/PR"></option>
+                                    <option value="LOJA/CE"></option>
+                                    <option value="LOJA/BA"></option>
+                                    <option value="LOJA/PE"></option>
+
+                                </datalist>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+            <button id="adicionar" class="adicionar">ADICIONAR</button>
+        </div>
+        
+        <section>
+            <table class="tabela-chamados">
+                <thead>
+                    <tr>
+                        <th colspan="6" class="titulo-tabela">
+                            <div class="header">
+                            <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela" style="width: 130px;">
+                            STATUS CHAMADOS
+                            <img src="./src/imagens/TIM.png" alt="logo-tim" style="width: 130px; height: 30px;">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>DATA</th>
+                        <th>CHAMADO</th>
+                        <th>HORA</th>
+                        <th>LOCAL</th>
+                        <th>MOTIVO</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        &copy; GUILHERME - 2025   Radar Chamados. <br> Todos os direitos reservados.
+    </footer>
+
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>
