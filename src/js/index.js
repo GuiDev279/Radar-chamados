@@ -8,7 +8,6 @@ renderTabela();
 btnAdicionar.addEventListener("click", () => {
     const dataInput = document.getElementById('data').value;
     const chamado = document.getElementById('chamado').value;
-    
     const hora = document.getElementById('hora').value;
     const local = document.getElementById('local').value;
 
@@ -17,23 +16,26 @@ btnAdicionar.addEventListener("click", () => {
         return;
     }
 
-     if (!/^\d{6}$/.test(chamado)) {
+    if (!/^\d{6}$/.test(chamado)) {
         alert("O número do chamado deve ter exatamente 6 dígitos!");
         return;
     }
 
     // formatar data: de "2025-08-19" para "19 Ago"
     const dataObj = new Date(dataInput);
-    const opcoes = { day: "2-digit", month: "short" }; // dia e mês abreviado
+    const opcoes = { day: "2-digit", month: "short" };
     const dataFormatada = dataObj.toLocaleDateString("pt-BR", opcoes);
+
+    // 🔎 buscar dados na base
+    const dadosBase = buscarDadosNaBase(chamado);
 
     const novoChamado = { 
         data: dataFormatada, 
         chamado, 
         hora, 
         local, 
-        motivo: "", 
-        status: "" 
+        motivo: dadosBase?.ULTIMA_AÇÃO || "Não encontrado", 
+        status: dadosBase?.ESTADO || "Não encontrado" 
     };
     
     chamados.push(novoChamado);
@@ -48,6 +50,14 @@ btnAdicionar.addEventListener("click", () => {
     document.getElementById('local').value = "";
 });
 
+// função para buscar dados (MOTIVO + STATUS) no localStorage da base
+function buscarDadosNaBase(numeroChamado) {
+    let dadosSalvos = localStorage.getItem("dadosTabela");
+    if (!dadosSalvos) return null;
+
+    let dados = JSON.parse(dadosSalvos);
+    return dados.find(item => String(item.CHAMADO) === String(numeroChamado)) || null;
+}
 
 // renderiza tabela
 function renderTabela() {
@@ -57,9 +67,10 @@ function renderTabela() {
 
         // cor do status
         let cor = "";
-        if (c.status === "Aberto") cor = "red";
-        if (c.status === "Em atendimento") cor = "orange";
-        if (c.status === "Fechado") cor = "green";
+        if (c.status === "AGUARDANDO CLIENTE") cor = "red";
+        if (c.status === "EM ATENDIMENTO") cor = "orange";
+        if (c.status === "FECHADO") cor = "green";
+        if (c.status === "Não encontrado") cor = "gray";
 
         tr.innerHTML = `
             <td>
@@ -72,42 +83,18 @@ function renderTabela() {
             <td>
                 <input class="uppercase" type="text" value="${c.motivo}" 
                        oninput="atualizarMotivo(${index}, this.value)" 
-                       placeholder="Digite o motivo"
                        style="width:100%; background:transparent; border:none; outline:none;">
             </td>
-            <td>
-                <select onchange="atualizarStatus(${index}, this.value)" style="color:${cor}">
-                    <option value="">Selecione</option>
-                    <option value="Aberto" ${c.status === "Aberto" ? "selected" : ""}>Aberto</option>
-                    <option value="Em atendimento" ${c.status === "Em atendimento" ? "selected" : ""}>Em atendimento</option>
-                    <option value="Fechado" ${c.status === "Fechado" ? "selected" : ""}>Fechado</option>
-                </select>
-            </td>
+            <td style="color:${cor}">${c.status}</td>
         `;
         tabela.appendChild(tr);
     });
 }
 
-
-
-function atualizarStatus(index, valor) {
-    chamados[index].status = valor;
-    salvar();    
-}
-
 function atualizarMotivo(index, valor) {
     chamados[index].motivo = valor;
     salvar();
-
-
-    // mudar a cor do select
-    const select = document.querySelectorAll("select")[index];
-    if (valor === "Aberto") select.style.color = "red";
-    if (valor === "Em atendimento") select.style.color = "orange";
-    if (valor === "Fechado") select.style.color = "green";
 }
-
-
 
 // salva no localStorage
 function salvar() {
@@ -121,5 +108,4 @@ function excluir(index) {
     renderTabela();
 }
 
-// deixa acessível no escopo global
 window.excluir = excluir;

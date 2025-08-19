@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/dados.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Base de Dados</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="./index.html">
+            <img src="./src/imagens/favicon.ico" alt="" class="home" style="width: 50px;">
+        </a>
+        <h1 class="titulo">Base de Dados</h1>
+        <img src="./src/imagens/armazenamento-de-banco-de-dados.png" alt="" style="width: 50px;">
+    </header>
+    <main class="container">
+        <section class="tabela-container">
+            <input type="file" id="inputExcel" accept=".xlsx,.xls" />
+            <table class="tabela" border="1">
+                <thead>
+                    <tr>
+                        <th>CHAMADO</th>
+                        <th>NOME</th>
+                        <th>ABERTURA</th>
+                        <th>ULTIMA AÇÃO</th>
+                        <th>FECHAMENTO</th>
+                        <th>ESTADO</th>
+                        <th>MOTIVO</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="./src/js/dados.js"></script>
+</body>
+</html>

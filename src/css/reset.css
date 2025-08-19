@@ -10,14 +10,17 @@ ul{
 }
 
 input {
-    width: 100%;
+    
     border: none;
     padding: 4px;
     text-align: left;
     background: none;
 }
 
-
+a{
+    text-decoration: none; /* remove o sublinhado */
+    color: inherit;      /* herda a cor do elemento pai */
+}
 
 select {
   background: transparent;   /* tira o fundo */
