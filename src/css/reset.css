@@ -15,6 +15,13 @@ input {
     padding: 4px;
     text-align: left;
     background: none;
+    outline: none;  /* remove o contorno ao clicar */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 a{
