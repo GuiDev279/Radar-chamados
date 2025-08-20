@@ -98,6 +98,7 @@ input{
 .tabela-chamados .header{
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .tabela-chamados th,
@@ -116,4 +117,15 @@ input{
 
 .lixeira:hover {
   color: red;        /* fica vermelha ao passar o mouse */
+}
+
+#exportar {
+    display: flex;
+    position: absolute;
+    right: -10px;
+    top: -33px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
 }

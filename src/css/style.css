@@ -188,3 +188,10 @@ input.uppercase {
     color: #000;
     cursor: pointer;
 }
+
+#excluirFechados{
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

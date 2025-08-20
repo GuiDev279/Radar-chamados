@@ -72,3 +72,22 @@ function removerChamado(index) {
   localStorage.setItem("agendados", JSON.stringify(agendados));
   renderTabela();
 }
+
+document.getElementById("exportar").addEventListener("click", exportarExcel);
+
+function exportarExcel() {
+    if (agendados.length === 0) {
+        alert("Nenhum chamado para exportar!");
+        return;
+    }
+
+    // transforma em planilha
+    const ws = XLSX.utils.json_to_sheet(agendados);
+
+    // cria um workbook
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "agendados");
+
+    // baixa arquivo
+    XLSX.writeFile(wb, "status_agendados.xlsx");
+}

@@ -193,5 +193,22 @@ function exportarExcel() {
     XLSX.writeFile(wb, "status_chamados.xlsx");
 }
 
+document.getElementById("excluirFechados").addEventListener("click", excluirFechados);
+
+function excluirFechados() {
+    const confirmacao = confirm("Deseja realmente excluir todos os chamados fechados?");
+    if (!confirmacao) return;
+
+    // mantém apenas os que não estão fechados
+    chamados = chamados.filter(c => c.status !== "FECHADO");
+
+    salvar();
+    renderTabela();
+    contarStatus();
+
+    alert("Todos os chamados fechados foram excluídos!");
+}
+
+
 
 window.excluir = excluir;
