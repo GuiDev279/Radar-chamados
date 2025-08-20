@@ -23,7 +23,9 @@ btnAdicionar.addEventListener("click", () => {
     }
 
     // formatar data: de "2025-08-19" para "19 Ago"
-    const dataObj = new Date(dataInput);
+    const [ano, mes, dia] = dataInput.split("-");
+    const dataObj = new Date(ano, mes - 1, dia); // aqui já cria no fuso local corretamente
+
     const opcoes = { day: "2-digit", month: "short" };
     const dataFormatada = dataObj.toLocaleDateString("pt-BR", opcoes);
 
