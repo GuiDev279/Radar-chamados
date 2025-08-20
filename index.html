@@ -32,6 +32,11 @@
                 </li>
             </ul>
         </nav>
+        <div id="contadores">
+            <p>Aguardando cliente: <span id="aguardando">0</span></p>
+            <p>Em Atendimento: <span id="atendimento">0</span></p>
+            <p>Fechado: <span id="fechado">0</span></p>
+        </div>
         <img class="ark" src="./src/imagens/favicon.ico" alt="logo-2">
     </header>
 
@@ -46,7 +51,8 @@
                     <tr>
                         <th>CHAMADO</th>
                         <td>
-                            <input type="number" name="chamado" pattern="\\d{6}" maxlength="6" placeholder="número do chamado" id="chamado">
+                            <input type="number" name="chamado" pattern="\\d{6}" maxlength="6"
+                                placeholder="número do chamado" id="chamado">
                         </td>
                     </tr>
                     <tr>
@@ -57,38 +63,52 @@
                         <th>LOCAL</th>
                         <td>
                             <input list="locais" name="local" placeholder="Selecione o local" id="local">
-                                <datalist id="locais">
-                                    <option value="SEMINARIO"></option>
-                                    <option value="PISA"></option>
-                                    <option value="CEO"></option>
-                                    <option value="SIGMA"></option>
-                                    <option value="PIEDADE"></option>
-                                    <option value="LUXEMBURGO"></option>
-                                    <option value="TRJ"></option>
-                                    <option value="LOJA/DF"></option>
-                                    <option value="LOJA/GO"></option>
-                                    <option value="LOJA/SP"></option>
-                                    <option value="LOJA/PR"></option>
-                                    <option value="LOJA/CE"></option>
-                                    <option value="LOJA/BA"></option>
-                                    <option value="LOJA/PE"></option>
+                            <datalist id="locais">
+                                <option value="SEMINARIO"></option>
+                                <option value="PISA"></option>
+                                <option value="CEO"></option>
+                                <option value="SIGMA"></option>
+                                <option value="PIEDADE"></option>
+                                <option value="LUXEMBURGO"></option>
+                                <option value="TRJ"></option>
+                                <option value="LOJA/DF"></option>
+                                <option value="LOJA/GO"></option>
+                                <option value="LOJA/SP"></option>
+                                <option value="LOJA/PR"></option>
+                                <option value="LOJA/CE"></option>
+                                <option value="LOJA/BA"></option>
+                                <option value="LOJA/PE"></option>
 
-                                </datalist>
+                            </datalist>
                         </td>
                     </tr>
                 </thead>
             </table>
             <button id="adicionar" class="adicionar">ADICIONAR</button>
         </div>
-        
+
+
         <section>
             <table class="tabela-chamados">
                 <thead>
                     <tr>
                         <th colspan="6" class="titulo-tabela">
                             <div class="header">
-                                <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela" style="width: 130px;">
-                                STATUS CHAMADOS
+                                <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela"
+                                    style="width: 130px;">
+                                <h3>STATUS CHAMADOS</h3>
+                                <div class="filtro">
+                                    <label for="filtro">Filtro</label>
+                                    <select id="filtro">
+                                        <option value=""></option>
+                                        <option value="todos">Todos</option>
+                                        <option value="aguardando">Aguardando Cliente</option>
+                                        <option value="atendimento">Em Atendimento</option>
+                                        <option value="abertos">Aguardando + Atendimento</option>
+                                        <option value="fechado">Fechado</option>
+                                        <option value="naoencontrado">Não encontrado</option>
+                                    </select>
+                                </div>
                                 <img src="./src/imagens/TIM.png" alt="logo-tim" style="width: 130px; height: 30px;">
                             </div>
                         </th>
@@ -99,7 +119,9 @@
                         <th>HORA</th>
                         <th>LOCAL</th>
                         <th>MOTIVO</th>
-                        <th>STATUS</th>
+                        <th>
+                            STATUS
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,7 +139,7 @@
     </main>
 
     <footer class="rodape">
-        &copy; GUILHERME - 2025   Radar Chamados. <br> Todos os direitos reservados.
+        &copy; GUILHERME - 2025 Radar Chamados. <br> Todos os direitos reservados.
     </footer>
 
     <script src="./src/js/index.js"></script>

@@ -4,6 +4,7 @@ const btnAdicionar = document.getElementById("adicionar");
 // carregar dados do localStorage
 let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
 renderTabela();
+atualizarChamadosComBase();
 
 btnAdicionar.addEventListener("click", () => {
     const dataInput = document.getElementById('data').value;
@@ -42,6 +43,7 @@ btnAdicionar.addEventListener("click", () => {
 
     salvar();
     renderTabela();
+    contarStatus();
 
     // limpar os campos
     document.getElementById('data').value = "";
@@ -62,34 +64,75 @@ function buscarDadosNaBase(numeroChamado) {
 // renderiza tabela
 function renderTabela() {
     tabela.innerHTML = "";
+    const filtro = document.getElementById("filtro").value;
     chamados.forEach((c, index) => {
-        const tr = document.createElement("tr");
+        let mostrar = true;
 
-        // cor do status
-        let cor = "";
-        if (c.status === "AGUARDANDO CLIENTE") cor = "red";
-        if (c.status === "EM ATENDIMENTO") cor = "orange";
-        if (c.status === "FECHADO") cor = "green";
-        if (c.status === "Não encontrado") cor = "gray";
+        // aplica filtro
+        if (filtro === "aguardando" && c.status !== "AGUARDANDO CLIENTE") mostrar = false;
+        if (filtro === "atendimento" && c.status !== "EM ATENDIMENTO") mostrar = false;
+        if (filtro === "abertos" && !(c.status === "AGUARDANDO CLIENTE" || c.status === "EM ATENDIMENTO")) mostrar = false;
+        if (filtro === "fechado" && c.status !== "FECHADO") mostrar = false;
+        if (filtro === "naoencontrado" && c.status !== "Não encontrado") mostrar = false;
 
-        tr.innerHTML = `
-            <td>
-              ${c.data} 
-              <span class="lixeira" onclick="excluir(${index})">🗑️</span>
-            </td>
-            <td>${c.chamado}</td>
-            <td>${c.hora}</td>
-            <td>${c.local}</td>
-            <td>
-                <div style="white-space:nowrap; overflow-x:auto; max-width:200px;">
-                    ${c.motivo}
-                </div>
-            </td>
-            <td style="color:${cor}">${c.status}</td>
-        `;
-        tabela.appendChild(tr);
+        if (mostrar) {
+            const tr = document.createElement("tr");
+
+            // cor do status
+            let cor = "";
+            if (c.status === "AGUARDANDO CLIENTE") cor = "red";
+            if (c.status === "EM ATENDIMENTO") cor = "orange";
+            if (c.status === "FECHADO") cor = "green";
+            if (c.status === "Não encontrado") cor = "gray";
+
+            tr.innerHTML = `
+                <td>
+                ${c.data} 
+                <span class="lixeira" onclick="excluir(${index})">🗑️</span>
+                </td>
+                <td>${c.chamado}</td>
+                <td>${c.hora}</td>
+                <td>${c.local}</td>
+                <td>
+                    <div style="white-space:nowrap; overflow-x:auto; max-width:200px;">
+                        ${c.motivo}
+                    </div>
+                </td>
+                <td style="color:${cor}">${c.status}</td>
+            `;
+            tabela.appendChild(tr);
+        }
+
+
     });
+    contarStatus();
 }
+document.getElementById("filtro").addEventListener("change", renderTabela);
+
+function contarStatus() {
+    const statusCells = document.querySelectorAll(".tabela-chamados tbody tr td:last-child");
+
+    let aguardando = 0;
+    let atendimento = 0;
+    let fechado = 0;
+
+    statusCells.forEach(cell => {
+        const texto = cell.textContent.trim().toUpperCase();
+
+        if (texto === "AGUARDANDO CLIENTE") {
+            aguardando++;
+        } else if (texto === "EM ATENDIMENTO") {
+            atendimento++;
+        } else if (texto === "FECHADO") {
+            fechado++;
+        }
+    });
+
+    document.getElementById("aguardando").textContent = aguardando;
+    document.getElementById("atendimento").textContent = atendimento;
+    document.getElementById("fechado").textContent = fechado;
+}
+
 
 function atualizarMotivo(index, valor) {
     chamados[index].motivo = valor;
@@ -106,6 +149,27 @@ function excluir(index) {
     chamados.splice(index, 1);
     salvar();
     renderTabela();
+    contarStatus();
+    alert("Chamado excluído com sucesso!");
+}
+
+function atualizarChamadosComBase() {
+    let dadosSalvos = localStorage.getItem("dadosTabela");
+    if (!dadosSalvos) return;
+
+    let dadosBase = JSON.parse(dadosSalvos);
+
+    chamados.forEach(chamado => {
+        const encontrado = dadosBase.find(item => String(item.CHAMADO) === String(chamado.chamado));
+        if (encontrado) {
+            chamado.motivo = encontrado.MOTIVO;
+            chamado.status = encontrado.ESTADO;
+        }
+    });
+
+    salvar();
+    renderTabela();
+    contarStatus();
 }
 
 window.excluir = excluir;

@@ -1,60 +1,74 @@
 // função para preencher a tabela a partir de um array de objetos
 function preencherTabela(dados) {
-    let tbody = document.querySelector(".tabela tbody");
-    tbody.innerHTML = "";
+    const tbody = document.querySelector(".tabela tbody");
 
-    let colunas = ["CHAMADO", "NOME", "ABERTURA", "ULTIMA AÇÃO", "FECHAMENTO", "ESTADO", "MOTIVO"];
+    // efeito fade out antes de limpar
+    tbody.style.opacity = 0;
 
-    dados.forEach(row => {
-        let tr = document.createElement("tr");
-        colunas.forEach(col => {
-            let td = document.createElement("td");
-            td.textContent = row[col] || "";
-            tr.appendChild(td);
+    setTimeout(() => {
+        tbody.innerHTML = ""; // limpa linhas antigas
+
+        const colunas = ["CHAMADO", "NOME", "ABERTURA", "ULTIMA AÇÃO", "FECHAMENTO", "ESTADO", "MOTIVO"];
+
+        dados.forEach(row => {
+            const tr = document.createElement("tr");
+            colunas.forEach(col => {
+                const td = document.createElement("td");
+                td.textContent = row[col] || "";
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
         });
-        tbody.appendChild(tr);
-    });
+
+        // fade in dos novos dados
+        tbody.style.opacity = 1;
+    }, 150); // tempo do fade out
 }
 
-// quando escolher um arquivo Excel
-document.getElementById('inputExcel').addEventListener('change', function (e) {
-    let file = e.target.files[0];
-    let reader = new FileReader();
+// função para processar o arquivo Excel e atualizar a tabela
+function processarExcel(file) {
+    const reader = new FileReader();
 
     reader.onload = function (e) {
-        let data = new Uint8Array(e.target.result);
-        let workbook = XLSX.read(data, { type: 'array' });
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
 
-        let sheetName = workbook.SheetNames[0];
-        let sheet = workbook.Sheets[sheetName];
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
 
-        // converte para JSON
-        let rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+        const rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
 
-        // salva no localStorage
+        // salva os novos dados no localStorage
         localStorage.setItem("dadosTabela", JSON.stringify(rows));
 
-        // preenche a tabela
+        // preenche a tabela com efeito
         preencherTabela(rows);
     };
 
     reader.readAsArrayBuffer(file);
+}
+
+// evento quando o usuário escolhe um arquivo
+document.getElementById('inputExcel').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    processarExcel(file);
 });
 
-// quando a página carregar, recupera do localStorage
+// ao carregar a página, preenche a tabela com dados salvos (se houver)
 window.addEventListener("DOMContentLoaded", () => {
-    let dadosSalvos = localStorage.getItem("dadosTabela");
+    const dadosSalvos = localStorage.getItem("dadosTabela");
     if (dadosSalvos) {
         preencherTabela(JSON.parse(dadosSalvos));
     }
 });
 
-// procura um chamado específico e retorna os dados
+// busca um chamado específico
 function buscarChamado(numeroChamado) {
-    let dadosSalvos = localStorage.getItem("dadosTabela");
+    const dadosSalvos = localStorage.getItem("dadosTabela");
     if (!dadosSalvos) return null;
 
-    let dados = JSON.parse(dadosSalvos);
+    const dados = JSON.parse(dadosSalvos);
     return dados.find(item => String(item.CHAMADO) === String(numeroChamado));
 }
-
