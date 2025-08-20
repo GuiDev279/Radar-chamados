@@ -174,4 +174,5 @@ input.uppercase {
 .filtro #filtro {
     width: 10px;
     padding: 5px;
+    border: none;
 }
