@@ -43,6 +43,15 @@ btnAdicionar.addEventListener("click", () => {
 
     chamados.push(novoChamado);
 
+    // ordenar por hora (HH:mm)
+    chamados.sort((a, b) => {
+        const [ha, ma] = a.hora.split(":").map(Number);
+        const [hb, mb] = b.hora.split(":").map(Number);
+
+        if (ha !== hb) return ha - hb;
+        return ma - mb;
+    });
+
     salvar();
     renderTabela();
     contarStatus();

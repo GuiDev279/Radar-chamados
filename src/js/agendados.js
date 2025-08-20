@@ -20,25 +20,31 @@ btnAdicionar.addEventListener("click", () => {
     return;
   }
 
-    const [ano, mes, dia] = dataInput.split("-");
-    const dataObj = new Date(ano, mes - 1, dia); 
-    const opcoes = { day: "2-digit", month: "short" };
-    const dataFormatada = dataObj.toLocaleDateString("pt-BR", opcoes);
+  const [ano, mes, dia] = dataInput.split("-");
+  const dataObj = new Date(ano, mes - 1, dia);
+  const opcoes = { day: "2-digit", month: "short" };
+  const dataFormatada = dataObj.toLocaleDateString("pt-BR", opcoes);
 
   // Criar objeto
   const novoChamado = {
-    data: dataFormatada,
+    dataISO: dataInput, // ← formato yyyy-mm-dd (para ordenar)
+    data: dataFormatada, // ← formatada para exibição
     chamado: chamado,
     hora: hora,
     local: local,
     status: "AGENDADO"
   };
 
-  // Salvar no array e localStorage
+  // adiciona no array
   agendados.push(novoChamado);
+
+  // ordena por data (mais antiga → mais recente)
+  agendados.sort((a, b) => new Date(a.dataISO) - new Date(b.dataISO));
+
+  // salva no localStorage
   localStorage.setItem("agendados", JSON.stringify(agendados));
 
-  // Atualizar tabela
+  // atualiza tabela
   renderTabela();
 
   // Limpar campos
@@ -76,18 +82,18 @@ function removerChamado(index) {
 document.getElementById("exportar").addEventListener("click", exportarExcel);
 
 function exportarExcel() {
-    if (agendados.length === 0) {
-        alert("Nenhum chamado para exportar!");
-        return;
-    }
+  if (agendados.length === 0) {
+    alert("Nenhum chamado para exportar!");
+    return;
+  }
 
-    // transforma em planilha
-    const ws = XLSX.utils.json_to_sheet(agendados);
+  // transforma em planilha
+  const ws = XLSX.utils.json_to_sheet(agendados);
 
-    // cria um workbook
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "agendados");
+  // cria um workbook
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "agendados");
 
-    // baixa arquivo
-    XLSX.writeFile(wb, "status_agendados.xlsx");
+  // baixa arquivo
+  XLSX.writeFile(wb, "status_agendados.xlsx");
 }
