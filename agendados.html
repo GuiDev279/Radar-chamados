@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./src/css/agendados.css">
     <title>Agendados</title>
 </head>
+
 <body>
     <header class="cabecalho">
         <a href="./index.html">
@@ -36,28 +38,32 @@
                         <th>LOCAL</th>
                         <td>
                             <input list="locais" name="local" placeholder="Selecione o local" id="local">
-                                <datalist id="locais">
-                                    <option value="SEMINARIO"></option>
-                                    <option value="PISA"></option>
-                                    <option value="CEO"></option>
-                                    <option value="SIGMA"></option>
-                                    <option value="PIEDADE"></option>
-                                    <option value="LUXEMBURGO"></option>
-                                    <option value="P.Alegre/RS"></option>
-                                    <option value="TRJ"></option>
-                                    <option value="LOJA/DF"></option>
-                                    <option value="LOJA/GO"></option>
-                                    <option value="LOJA/SP"></option>
-                                    <option value="LOJA/PR"></option>
-                                    <option value="LOJA/CE"></option>
-                                    <option value="LOJA/BA"></option>
-                                    <option value="LOJA/PE"></option>
-                                </datalist>
+                            <datalist id="locais">
+                                <option value="SEMINARIO"></option>
+                                <option value="PISA"></option>
+                                <option value="CEO"></option>
+                                <option value="SIGMA"></option>
+                                <option value="PIEDADE"></option>
+                                <option value="LUXEMBURGO"></option>
+                                <option value="P.Alegre/RS"></option>
+                                <option value="TRJ"></option>
+                                <option value="SAO BRAS/PA"></option>
+                                <option value="PALMAS/TO"></option>
+                                <option value="SALVADOR"></option>
+                                <option value="LOJA/SC"></option>
+                                <option value="LOJA/DF"></option>
+                                <option value="LOJA/GO"></option>
+                                <option value="LOJA/SP"></option>
+                                <option value="LOJA/PR"></option>
+                                <option value="LOJA/CE"></option>
+                                <option value="LOJA/BA"></option>
+                                <option value="LOJA/PE"></option>
+                            </datalist>
                         </td>
                     </tr>
                 </thead>
             </table>
-            <button  id="adicionar">ADICIONAR</button>
+            <button id="adicionar">ADICIONAR</button>
         </section>
         <section class="tabela-chamados">
             <table class="tabela-agendados">
@@ -65,12 +71,13 @@
                     <tr>
                         <th colspan="6" class="titulo-tabela">
                             <div class="header">
-                                <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela" style="width: 130px;">
-                                    <h1>CHAMADOS AGENDADOS</h1>
+                                <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela"
+                                    style="width: 130px;">
+                                <h1>CHAMADOS AGENDADOS</h1>
                                 <img src="./src/imagens/TIM.png" alt="logo-tim" style="width: 130px; height: 30px;">
                                 <button id="exportar">Exportar Excel</button>
                             </div>
-                            
+
                         </th>
                     </tr>
                     <tr>
@@ -88,4 +95,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="./src/js/agendados.js"></script>
 </body>
+
 </html>
