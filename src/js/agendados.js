@@ -20,7 +20,8 @@ btnAdicionar.addEventListener("click", () => {
     return;
   }
 
-   const dataObj = new Date(dataInput);
+    const [ano, mes, dia] = dataInput.split("-");
+    const dataObj = new Date(ano, mes - 1, dia); 
     const opcoes = { day: "2-digit", month: "short" };
     const dataFormatada = dataObj.toLocaleDateString("pt-BR", opcoes);
 

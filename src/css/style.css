@@ -177,3 +177,14 @@ input.uppercase {
     border: none;
     background: none;
 }
+
+#exportar {
+    display: flex;
+    position: absolute;
+    right: -10px;
+    top: -33px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}

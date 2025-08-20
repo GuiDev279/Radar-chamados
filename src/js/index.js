@@ -174,4 +174,24 @@ function atualizarChamadosComBase() {
     contarStatus();
 }
 
+document.getElementById("exportar").addEventListener("click", exportarExcel);
+
+function exportarExcel() {
+    if (chamados.length === 0) {
+        alert("Nenhum chamado para exportar!");
+        return;
+    }
+
+    // transforma em planilha
+    const ws = XLSX.utils.json_to_sheet(chamados);
+
+    // cria um workbook
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Chamados");
+
+    // baixa arquivo
+    XLSX.writeFile(wb, "status_chamados.xlsx");
+}
+
+
 window.excluir = excluir;
