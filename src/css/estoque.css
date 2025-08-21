@@ -1,0 +1,123 @@
+.cabecalho{
+    padding: 10px 20px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    color: #fff;
+}
+.container{
+    position: relative;
+    background-image: url(../imagens/ark.fundo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+}
+
+.add-manual{
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+}
+
+.add-manual th,
+.add-manual td{
+    width: 100px;
+    border: solid 1px #000;
+    padding: 10px;
+}
+
+.add-manual input{
+    width: 100%;
+}
+
+.planilha-estoque{
+    display: flex;
+    justify-content: center;
+}
+
+ .tabela-estoque{
+    
+    justify-content: center;
+    border-collapse: collapse;
+}
+
+.tabela-estoque .cabecalho-tabela{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+.tabela-estoque tr,
+.tabela-estoque th,
+.tabela-estoque td{
+    text-align: center;
+    width: 100px;
+    border: solid 1px #000;
+} 
+
+.cabecalho-tabela .ark{
+    animation: ark infinite 20s linear;
+}
+
+@keyframes ark {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-excluir{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.cabecalho-tabela .upload-container{
+    position: absolute;
+    left: 5px;
+}
+
+
+.upload-container {
+  margin: 10px 0;
+}
+
+.upload-label {
+  display: inline-block;
+  
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.upload-label:hover {
+  background: #ccc;
+}
+.tabela-manual{
+    position: relative;
+}
+
+.tabela-manual #btn-add{
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 8px 16px;
+}
+
+.tabela-manual #btn-add:hover{
+    background: #ccc;
+}

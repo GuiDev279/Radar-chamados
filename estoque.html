@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./src/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/estoque.css">
+    <title>ESTOQUE</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="./src/imagens/logo.png" alt="logo-ark">
+        <h1 class="titulo">ESTOQUE</h1>
+
+        <img src="./src/imagens/TIM.png" alt="logo-tim">
+    </header>
+    <main class="container">
+        <section class="tabela-manual">
+            <table class="add-manual">
+                <tr>
+                    <th>SERIAL</th>
+                    <th>PATRIMONIO</th>
+                    <th>LEGADO</th>
+                    <th>DATA</th>
+                    <th>TIPO</th>
+                    <th>MARCA</th>
+                    <th>MODELO</th>
+                    <th>CONDIÇÃO</th>
+                    <th>NF</th>
+                    <th>MATRICULA</th>
+                    <th>STATUS</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="serial"></td>
+                    <td><input type="text" name="" id="patrimonio"></td>
+                    <td>
+                        <select name="legado" id="legado">
+                            <option value="ARKLOK">ARKLOK</option>
+                            <option value="TIM">TIM</option>
+                        </select>
+                    </td>
+                    <td><input type="date" name="data" id="data"></td>
+                    <td><input type="text" id="tipo"></td>
+                    <td>
+                        <select name="marca" id="marca">
+                            <option value="lenovo">LENOVO</option>
+                            <option value="dell">DELL</option>
+                            <option value="hp">HP</option>
+                        </select>
+                    </td>
+                    <td><input type="text" id="modelo"></td>
+                    <td>
+                        <select name="condicao" id="condicao">
+                            <option value="novo">Novo</option>
+                            <option value="usado">Usado</option>
+                        </select>
+                    </td>
+                    <td><input type="text" id="nf"></td>
+                    <td><input type="text" id="matricula"></td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="em-uso">Em uso</option>
+                            <option value="Em Estoque">Em Estoque</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button id="btn-add">ADICIONAR</button>
+        </section>
+        <section class="planilha-estoque">
+            <table class="tabela-estoque">
+                <thead>
+                    <tr>
+                        <th colspan="11" class="tabela-titulo">
+                            <div class="cabecalho-tabela">
+                                <div class="upload-container">
+                                    <label for="upload" class="upload-label">📂 Importar Planilha</label>
+                                    <input  type="file" id="upload" accept=".xlsx, .xls, .csv" hidden>
+                                </div>
+                                <img src="./src/imagens/favicon.ico" alt="logo-ark" class="ark">
+                                <h2>ESTOQUE</h2>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>SERIAL</th>
+                        <th>PATRIMONIO</th>
+                        <th>LEGADO</th>
+                        <th>DATA</th>
+                        <th>TIPO</th>
+                        <th>MARCA</th>
+                        <th>MODELO</th>
+                        <th>CONDIÇÃO</th>
+                        <th>NF</th>
+                        <th>MATRICULA</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody class="corpo"></tbody>
+            </table>
+        </section>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="./src/js/estoque.js"></script>
+
+</html>

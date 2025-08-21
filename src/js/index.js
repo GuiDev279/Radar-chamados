@@ -88,6 +88,7 @@ function renderTabela() {
 
         if (mostrar) {
             const tr = document.createElement("tr");
+             tr.classList.add("nova-linha");
 
             // cor do status
             let cor = "";

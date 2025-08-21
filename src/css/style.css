@@ -195,3 +195,19 @@ input.uppercase {
     border: none;
     cursor: pointer;
 }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* entra de cima */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nova-linha {
+  animation: fadeIn 0.5s ease forwards;
+}
