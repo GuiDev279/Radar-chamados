@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'MinhaFonte';
+  src: url('../assets/fonts/Yourmate.ttf') format('woff2');    
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cabecalho{
     padding: 10px 20px 5px 5px;
     display: flex;
@@ -6,21 +13,29 @@
     background-color: #000;
     color: #fff;
 }
+
+.cabecalho h1{
+    font-family: MinhaFonte, sans-serif;
+    letter-spacing: 2px;
+}
+
 .container{
     position: relative;
     background-image: url(../imagens/ark.fundo.png);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-
+    padding-bottom: 30px;
 }
 
 .add-manual{
+    
     padding-top: 30px;
     margin-bottom: 30px;
     border-collapse: collapse;
     display: flex;
     justify-content: center;
+    display: none;
 }
 
 .add-manual th,
@@ -30,13 +45,20 @@
     padding: 10px;
 }
 
+.add-manual input.uppercase{
+    text-transform: uppercase !important;
+    text-align: center;
+}
+
 .add-manual input{
     width: 100%;
+
 }
 
 .planilha-estoque{
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 
  .tabela-estoque{
@@ -80,17 +102,17 @@
     cursor: pointer;
 }
 
-.cabecalho-tabela .upload-container{
+.cabecalho-tabela .export{
     position: absolute;
     left: 5px;
 }
 
 
-.upload-container {
+.export {
   margin: 10px 0;
 }
 
-.upload-label {
+.exportar {
   display: inline-block;
   
   color: #000;
@@ -101,23 +123,115 @@
   transition: background 0.2s;
 }
 
-.upload-label:hover {
+.exportar:hover {
   background: #ccc;
 }
 .tabela-manual{
     position: relative;
 }
 
-.tabela-manual #btn-add{
+#btn-add{
+    
     position: absolute;
-    top: 0;
-    left: 30px;
+    top: 5px;
+    right: 35px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 8px 16px 0 16px;
+}
+
+ #btn-add:hover{
+    background: #ccc;
+}
+
+
+.cadastrar{
+    position: absolute;
+    top: 9px;
+    right: 30px;
     background: none;
     cursor: pointer;
     border: none;
     padding: 8px 16px;
 }
 
-.tabela-manual #btn-add:hover{
+.cadastrar:hover{
     background: #ccc;
+    border-radius: 5px;
 }
+
+.ativo{
+    display: flex;
+}
+
+.cabecalho .titulo{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.cabecalho .titulo::after{
+    content: "";
+    display: inline-block;
+    background-image: url("../imagens/estoque.png");
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container .perifericos{
+    display: flex;
+}
+
+.container #perifericos{
+    display: none;
+    border-collapse: collapse;
+    margin-left: 80px;
+    margin-top: 25px; 
+    margin-bottom: 20px;  
+    
+}
+
+.container #perifericos input{
+    font-family: MinhaFonte, sans-serif;
+    width: 100%;
+    text-align: center;
+    color: darkred;
+}
+
+.container #perifericos th{
+    background-color: darkred;
+    color: #fff;
+}
+
+.container #perifericos th,
+.container #perifericos td{
+   font-family: MinhaFonte;
+    width: 225px;
+    height: 30px;
+    border: solid 1px #000;
+    padding: 0 6px 0 6px;
+}
+
+.btn-ver-periferico{
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: none;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-ver-periferico:hover{
+    background: linear-gradient(to bottom, #666, #aaa);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.ver-perifericos{
+    display: block !important;
+}
+

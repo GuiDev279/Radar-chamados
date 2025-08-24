@@ -17,11 +17,71 @@
 <body>
     <header class="cabecalho">
         <img src="./src/imagens/logo.png" alt="logo-ark">
+
         <h1 class="titulo">ESTOQUE</h1>
+
+        <button id="ver-perifericos" class="btn-ver-periferico">PERIFERICOS</button>
 
         <img src="./src/imagens/TIM.png" alt="logo-tim">
     </header>
     <main class="container">
+        <div class="perifericos">
+            
+            <table id="perifericos">
+                <thead>
+                    <tr>
+                        <th>CONSUMIVEIS</th>
+                        <th>TOTAL EM ESTOQUE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MOUSE</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>TECLADO</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>MOCHILA</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>HEADSET - (BILATERAL)</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>HEADSET - (UNILATERAL)</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>HUB USB</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>WEBCAM</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>DOCKSTATION</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>HEADSET PREMIUM</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>CABO DE SEGURANÇA</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>SUPORTE ERGONOMICO</td>
+                        <td><input type="number"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <section class="tabela-manual">
             <table class="add-manual">
                 <tr>
@@ -35,11 +95,13 @@
                     <th>CONDIÇÃO</th>
                     <th>NF</th>
                     <th>MATRICULA</th>
-                    <th>STATUS</th>
+                    <th>STATUS
+                        <button id="btn-add">ADICIONAR</button>
+                    </th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="serial"></td>
-                    <td><input type="text" name="" id="patrimonio"></td>
+                    <td><input class="uppercase" type="text" id="serial"></td>
+                    <td><input class="uppercase" type="number" name="patrimonio" id="patrimonio"></td>
                     <td>
                         <select name="legado" id="legado">
                             <option value="ARKLOK">ARKLOK</option>
@@ -47,7 +109,7 @@
                         </select>
                     </td>
                     <td><input type="date" name="data" id="data"></td>
-                    <td><input type="text" id="tipo"></td>
+                    <td><input class="uppercase" type="text" id="tipo"></td>
                     <td>
                         <select name="marca" id="marca">
                             <option value="lenovo">LENOVO</option>
@@ -55,7 +117,7 @@
                             <option value="hp">HP</option>
                         </select>
                     </td>
-                    <td><input type="text" id="modelo"></td>
+                    <td><input class="uppercase" type="text" id="modelo"></td>
                     <td>
                         <select name="condicao" id="condicao">
                             <option value="novo">Novo</option>
@@ -63,16 +125,16 @@
                         </select>
                     </td>
                     <td><input type="text" id="nf"></td>
-                    <td><input type="text" id="matricula"></td>
+                    <td><input class="uppercase" type="text" id="matricula"></td>
                     <td>
                         <select name="status" id="status">
                             <option value="em-uso">Em uso</option>
-                            <option value="Em Estoque">Em Estoque</option>
+                            <option value="Estoque">Estoque</option>
                         </select>
                     </td>
                 </tr>
             </table>
-            <button id="btn-add">ADICIONAR</button>
+
         </section>
         <section class="planilha-estoque">
             <table class="tabela-estoque">
@@ -80,12 +142,13 @@
                     <tr>
                         <th colspan="11" class="tabela-titulo">
                             <div class="cabecalho-tabela">
-                                <div class="upload-container">
-                                    <label for="upload" class="upload-label">📂 Importar Planilha</label>
-                                    <input  type="file" id="upload" accept=".xlsx, .xls, .csv" hidden>
+                                <div class="export">
+                                    <label for="export" class="exportar">📂 Exportar Planilha</label>
+                                    <input id="export" accept=".xlsx, .xls, .csv" hidden>
                                 </div>
                                 <img src="./src/imagens/favicon.ico" alt="logo-ark" class="ark">
                                 <h2>ESTOQUE</h2>
+                                <button class="cadastrar">Cadastrar</button>
                             </div>
                         </th>
                     </tr>
@@ -108,6 +171,7 @@
         </section>
     </main>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="./src/js/estoque.js"></script>
 

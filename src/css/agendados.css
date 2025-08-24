@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'MinhaFonte';
+  src: url('../assets/fonts/Yourmate.ttf') format('woff2');    
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cabecalho{
     display: flex;
     align-items: center;
@@ -9,6 +16,8 @@
 }
 
 .cabecalho .titulo{
+    font-family: MinhaFonte, sans-serif;
+    letter-spacing: 2px;
     color: #FFF;
 }
 

@@ -1,5 +1,13 @@
 const btnAdd = document.getElementById("btn-add");
 const tabelaEstoque = document.querySelector(".tabela-estoque tbody");
+const btnCadastro = document.querySelector(".cadastrar")
+const tabelaManual = document.querySelector(".add-manual")
+const tabelaPerifericos = document.getElementById("perifericos")
+
+
+btnCadastro.addEventListener('click', () => {
+   tabelaManual.classList.toggle("ativo")
+})
 
 // carrega estoque salvo no localStorage
 let estoque = JSON.parse(localStorage.getItem("estoque")) || [];
@@ -75,53 +83,73 @@ btnAdd.addEventListener("click", () => {
   document.querySelectorAll(".add-manual input, .add-manual select")
     .forEach(el => el.value = "");
 });
-const uploadInput = document.getElementById("upload");
 
-uploadInput.addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  if (!file) return;
+// quando clicar no label de exportação
+document.querySelector(".exportar").addEventListener("click", () => {
+  if (estoque.length === 0) {
+    alert("Não há dados no estoque para exportar.");
+    return;
+  }
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const data = new Uint8Array(e.target.result);
-    const workbook = XLSX.read(data, { type: "array" });
+  // cria a planilha a partir do estoque
+  const ws = XLSX.utils.json_to_sheet(estoque);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Estoque");
 
-    // pega a primeira aba da planilha
-    const primeiraAba = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[primeiraAba];
-
-    // converte para JSON
-    const dados = XLSX.utils.sheet_to_json(sheet);
-
-    /*
-      IMPORTANTE ⚠️
-      Os nomes das colunas da planilha precisam bater com:
-      SERIAL, PATRIMONIO, LEGADO, DATA, TIPO, MARCA, MODELO, CONDIÇÃO, NF, MATRICULA, STATUS
-    */
-
-    dados.forEach(item => {
-      estoque.push({
-        serial: item.SERIAL || "",
-        patrimonio: item.PATRIMONIO || "",
-        legado: item.LEGADO || "",
-        data: item.DATA || "",
-        tipo: item.TIPO || "",
-        marca: item.MARCA || "",
-        modelo: item.MODELO || "",
-        condicao: item["CONDIÇÃO"] || "",
-        nf: item.NF || "",
-        matricula: item.MATRICULA || "",
-        status: item.STATUS || ""
-      });
-    });
-
-    salvarEstoque();
-    renderTabela();
-  };
-
-  reader.readAsArrayBuffer(file);
+  // baixa o arquivo
+  XLSX.writeFile(wb, "estoque.xlsx");
 });
+
+// carrega os periféricos do localStorage
+let perifericosEstoque = JSON.parse(localStorage.getItem("perifericosEstoque")) || [];
+
+// função para salvar todos os valores atuais
+function salvarPerifericos() {
+  const linhas = document.querySelectorAll("#perifericos tbody tr");
+  perifericosEstoque = [];
+
+  linhas.forEach(linha => {
+    const nome = linha.querySelector("td:first-child").textContent.trim();
+    const quantidade = linha.querySelector("input").value || 0;
+
+    perifericosEstoque.push({
+      nome,
+      quantidade: Number(quantidade)
+    });
+  });
+
+  localStorage.setItem("perifericosEstoque", JSON.stringify(perifericosEstoque));
+}
+
+// função para carregar os valores salvos nos inputs
+function carregarPerifericos() {
+  const linhas = document.querySelectorAll("#perifericos tbody tr");
+
+  linhas.forEach(linha => {
+    const nome = linha.querySelector("td:first-child").textContent.trim();
+    const input = linha.querySelector("input");
+
+    const itemSalvo = perifericosEstoque.find(p => p.nome === nome);
+    if (itemSalvo) {
+      input.value = itemSalvo.quantidade;
+    }
+
+    // adiciona evento para salvar automaticamente ao alterar
+    input.addEventListener("input", salvarPerifericos);
+  });
+}
+
+const verPerifericos = document.getElementById("ver-perifericos")
+
+verPerifericos.addEventListener('click', () => {
+  tabelaPerifericos.classList.toggle('ver-perifericos')
+})
+
+// inicializa ao carregar a página
+carregarPerifericos();
+
 
 
 // inicializa tabela ao carregar
 renderTabela();
+

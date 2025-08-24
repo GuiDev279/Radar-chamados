@@ -21,19 +21,20 @@
             <ul>
                 <li><a href="./estoque.html" target="_blank">ESTOQUE</a></li>
                 <li><a href="./agendados.html" target="_blank">AGENDADOS</a></li>
-                <li>TEMPO DE VIDA</li>
+                <li><a href="#">TEMPO DE VIDA</a></li>
                 <li><a href="./base-de-dados.html">BASE DE DADOS</a></li>
             </ul>
         </nav>
-        <div id="contadores">
+        <!-- <div id="contadores">
             <p>Aguardando cliente: <span id="aguardando">0</span></p>
             <p>Em Atendimento: <span id="atendimento">0</span></p>
             <p>Fechado: <span id="fechado">0</span></p>
-        </div>
+        </div> -->
         <img class="ark" src="./src/imagens/favicon.ico" alt="logo-2">
     </header>
 
     <main class="container">
+
         <div class="tabela-container">
             <table class="tabela">
                 <thead class="tabela-head">
@@ -82,8 +83,13 @@
                 </thead>
             </table>
             <button id="adicionar" class="adicionar">ADICIONAR</button>
-        </div>
 
+        </div>
+        <div id="contadores">
+            <p>Aguardando cliente: <span id="aguardando">0</span></p>
+            <p>Em Atendimento: <span id="atendimento">0</span></p>
+            <p>Fechado: <span id="fechado">0</span></p>
+        </div>
 
         <section>
             <table class="tabela-chamados">
@@ -110,7 +116,7 @@
                                     </select>
                                 </div>
                                 <img src="./src/imagens/TIM.png" alt="logo-tim" style="width: 130px; height: 30px;">
-                                <button id="exportar">Exportar Excel</button>
+                                <button id="exportar">📂 Exportar Excel</button>
                             </div>
                         </th>
                     </tr>
