@@ -17,20 +17,30 @@ function renderTabela() {
   tabelaEstoque.innerHTML = "";
 
   estoque.forEach((item, index) => {
+
+    let dataFormatada = "";
+    if (item.data) {
+      const partes = item.data.split("-"); // ["aaaa","mm","dd"]
+      if (partes.length === 3) {
+        dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+      }
+    }
+
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${item.serial}</td>
-      <td>${item.patrimonio}</td>
-      <td>${item.legado}</td>
-      <td>${item.data}</td>
-      <td>${item.tipo}</td>
-      <td>${item.marca}</td>
-      <td>${item.modelo}</td>
-      <td>${item.condicao}</td>
-      <td>${item.nf}</td>
-      <td>${item.matricula}</td>
+      <td>${item.serial.toUpperCase()}</td>
+      <td>${item.patrimonio.toUpperCase()}</td>
+      <td>${item.legado.toUpperCase()}</td>
+      <td>${dataFormatada.toUpperCase()}</td>
+      <td>${item.tipo.toUpperCase()}</td>
+      <td>${item.marca.toUpperCase()}</td>
+      <td>${item.modelo.toUpperCase()}</td>
+      <td>${item.condicao.toUpperCase()}</td>
+      <td>${item.nf.toUpperCase()}</td>
+      <td>${item.matricula.toUpperCase()}</td>
       <td>
-        ${item.status}
+        ${item.status.toUpperCase()}
         <button class="btn-excluir" data-index="${index}" title="Excluir">
           🗑️
         </button>

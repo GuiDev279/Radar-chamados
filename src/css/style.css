@@ -1,4 +1,12 @@
+@font-face {
+  font-family: 'MinhaFonteP';
+  src: url('../assets/fonts/Bing\ Bam\ Boum.ttf') format('woff2');    
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cabecalho{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,19 +17,64 @@
 
 
 .cabecalho nav ul{
+    position: absolute;
     display: flex;
-    gap: 20px;
+    left: 25%;
+    top: 25%;
+    gap: 15px;
     text-align: center;
-    
 }
 
+
+.cabecalho nav ul  li  .titulo-estoque::after{
+    content: "";
+    display: inline-block !important;
+    width: 30px;
+    height: 30px;
+    background-image: url("../imagens/estoque.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cabecalho nav ul  li  .titulo-agendado::after{
+    content: "";
+    display: inline-block !important;
+    width: 30px;
+    height: 30px;
+    background-image: url("../imagens/cronograma.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cabecalho nav ul  li  .titulo-dados::after{
+    content: "";
+    display: inline-block !important;
+    width: 30px;
+    height: 30px;
+    background-image: url("../imagens/armazenamento-de-banco-de-dados.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cabecalho nav ul  li  .titulo-tempo::after{
+    content: "";
+    display: inline-block !important;
+    width: 30px;
+    height: 30px;
+    background-image: url("../imagens/registro-de-tempo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .cabecalho nav ul  li a{
+    font-size: 14px;
     width: 150px;
     display: flex;
     height: 40px;
     justify-content: center;
     align-items: center;
-    
+    gap: 5px;
 }
 
 .cabecalho nav ul  li{
