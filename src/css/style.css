@@ -14,8 +14,6 @@
     height: 80px;
 }
 
-
-
 .cabecalho nav ul{
     position: absolute;
     display: flex;
@@ -25,10 +23,9 @@
     text-align: center;
 }
 
-
 .cabecalho nav ul  li  .titulo-estoque::after{
     content: "";
-    display: inline-block !important;
+    display: inline-block;
     width: 30px;
     height: 30px;
     background-image: url("../imagens/estoque.png");
@@ -38,7 +35,7 @@
 
 .cabecalho nav ul  li  .titulo-agendado::after{
     content: "";
-    display: inline-block !important;
+    display: inline-block;
     width: 30px;
     height: 30px;
     background-image: url("../imagens/cronograma.png");
@@ -48,7 +45,7 @@
 
 .cabecalho nav ul  li  .titulo-dados::after{
     content: "";
-    display: inline-block !important;
+    display: inline-block;
     width: 30px;
     height: 30px;
     background-image: url("../imagens/armazenamento-de-banco-de-dados.png");
@@ -58,7 +55,7 @@
 
 .cabecalho nav ul  li  .titulo-tempo::after{
     content: "";
-    display: inline-block !important;
+    display: inline-block;
     width: 30px;
     height: 30px;
     background-image: url("../imagens/registro-de-tempo.png");

@@ -109,7 +109,13 @@
                         </select>
                     </td>
                     <td><input type="date" name="data" id="data"></td>
-                    <td><input class="uppercase" type="text" id="tipo"></td>
+                    <td>
+                        <select class="uppercase" name="tipo" id="tipo">
+                            <option value="NOTEBOOK">NOTEBOOK</option>
+                            <option value="MONITOR">MONITOR</option>
+                            <option value="HEADSET-BILATERAL">HEADSET-BI</option>
+                            <option value="HEADSET-UNILATERAL">HEADSET-UNI</option>
+                        </select>
                     <td>
                         <select name="marca" id="marca">
                             <option value="lenovo">LENOVO</option>
@@ -117,7 +123,19 @@
                             <option value="hp">HP</option>
                         </select>
                     </td>
-                    <td><input class="uppercase" type="text" id="modelo"></td>
+                    <td>
+                        <select name="modelo" id="modelo" style="width: 150px !important;">
+                            <option value="">LATITUDE 5400</option>
+                            <option value="">LATITUDE 5410</option>
+                            <option value="">LATITUDE 5420</option>
+                            <option value="">LATITUDE 7400</option>
+                            <option value="">LATITUDE 5490</option>
+                            <option value="">LATITUDE 7480</option>
+                            <option value="">T14</option>
+                            <option value="">PLATRONICS</option>
+                            <option value="">KENGINSTON</option>
+                        </select>
+                    </td>
                     <td>
                         <select name="condicao" id="condicao">
                             <option value="novo">Novo</option>
