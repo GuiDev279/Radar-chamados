@@ -6,6 +6,7 @@
 }
 
 .cabecalho{
+    position: relative;
     padding: 10px 20px 5px 5px;
     display: flex;
     align-items: center;
@@ -15,6 +16,8 @@
 }
 
 .cabecalho h1{
+    left: 45%;
+    position: absolute;
     font-family: MinhaFonte, sans-serif;
     letter-spacing: 2px;
 }
@@ -29,7 +32,6 @@
 }
 
 .add-manual{
-    
     padding-top: 30px;
     margin-bottom: 30px;
     border-collapse: collapse;
@@ -130,19 +132,17 @@
     position: relative;
 }
 
-#btn-add{
-    
+.img-add{
     position: absolute;
     top: 5px;
-    right: 35px;
+    padding: 5px;
     background: none;
     cursor: pointer;
-    border: none;
-    padding: 8px 16px 0 16px;
+    transition: 0.2s ease-in-out;
 }
 
- #btn-add:hover{
-    background: #ccc;
+.img-add:hover{
+    transform: scale(1.2);
 }
 
 
@@ -216,6 +216,8 @@
 }
 
 .btn-ver-periferico{
+    position: absolute;
+    right: 20%;
     color: #fff;
     border: none;
     padding: 8px 16px;
