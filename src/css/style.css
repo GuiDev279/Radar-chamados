@@ -162,6 +162,7 @@ section{
 
 .tabela-chamados{
     border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
 .tabela-chamados .titulo-tabela{
