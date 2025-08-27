@@ -25,6 +25,7 @@
 .container{
     position: relative;
     background-image: url(../imagens/ark.fundo.png);
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
