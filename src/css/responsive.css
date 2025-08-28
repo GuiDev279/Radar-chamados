@@ -1,4 +1,22 @@
-@media(max-width: 700px) {
+@media(max-width: 768px) {
+
+    
+        /* Esconde a coluna 1 (DATA) */
+    th:nth-child(1),
+    td:nth-child(1) {
+        display: none;
+    }
+
+    th:nth-child(5),
+    td:nth-child(5) {
+        display: none;
+    }
+
+    /* Esconde a coluna 3 (HORA) */
+    th:nth-child(3),
+    td:nth-child(3) {
+        display: none;
+    }
 
     .cabecalho .logo-principal {
         display: none;
@@ -36,4 +54,10 @@
         display: block;
     }
 
+}
+
+@media(max-width: 520px){
+    .container #contadores{
+        display: none;
+    }
 }

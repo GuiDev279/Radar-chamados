@@ -155,21 +155,15 @@
 }
 
 .tabela-container .adicionar{
-    background: linear-gradient(to bottom, #aaa, #666);
-    height: 50px;
+    height: 20px;
     color: white;
-    font-weight: bold;
     border: none;
-    padding: 15px 25px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px #333, -3px -3px 5px #999;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 .tabela-container .adicionar:hover{
-    background: linear-gradient(to bottom, #666, #aaa);
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
 
