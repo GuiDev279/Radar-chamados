@@ -14,6 +14,34 @@
     height: 80px;
 }
 
+.cabecalho nav{
+    display: flex;
+    position: absolute;
+    right: 100px;
+    left: 100px;
+}
+
+.cabecalho .menu-hum{
+    position: absolute;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    }
+
+.menu-hum span{
+    display: none;
+    height: 4px;
+    width: 100%;
+    background-color: #fff;
+}
+
 .cabecalho nav ul{
     display: flex;
     gap: 15px;
@@ -275,4 +303,8 @@ input.uppercase {
 
 .nova-linha {
   animation: fadeIn 0.5s ease forwards;
+}
+
+ul.ativo{
+    display: flex !important;
 }

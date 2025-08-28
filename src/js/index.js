@@ -1,5 +1,13 @@
 const tabela = document.querySelector(".tabela-chamados tbody");
 const btnAdicionar = document.getElementById("adicionar");
+const menuHum = document.querySelector(".menu-hum")
+const menu = document.querySelector(".menu")
+
+
+
+menuHum.addEventListener("click", () => {
+    menu.classList.toggle("ativo")
+})
 
 // carregar dados do localStorage
 let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
