@@ -1,0 +1,67 @@
+@media(max-width: 768px){
+     .btn-ver-periferico{
+        position: absolute;
+        right: 10px;
+    }
+
+    .container #perifericos{
+    
+        margin:  10px auto;
+    }
+
+    .tabela-estoque th:nth-child(2),
+    .tabela-estoque td:nth-child(2){
+        display: none;
+    } 
+
+    .tabela-estoque th:nth-child(3),
+    .tabela-estoque td:nth-child(3){
+        display: none;
+    } 
+
+    .tabela-estoque th:nth-child(4),
+    .tabela-estoque td:nth-child(4){
+        display: none;
+    } 
+
+    .tabela-estoque th:nth-child(5),
+    .tabela-estoque td:nth-child(5){
+        display: none;
+    } 
+
+    .tabela-estoque th:nth-child(6),
+    .tabela-estoque td:nth-child(6){
+        display: none;
+    } 
+}
+
+@media (max-width: 666px ) {
+    .cabecalho .titulo{
+        display: none;
+    }
+
+    .cabecalho .logo-tim{
+        display: none;
+    }
+
+    .tabela-estoque th:nth-child(8),
+    .tabela-estoque td:nth-child(8){
+        display: none;
+    }  
+}
+
+@media (max-width: 553px ) {
+
+    .tabela-estoque th:nth-child(9),
+    .tabela-estoque td:nth-child(9){
+        display: none;
+    }  
+}
+
+@media (max-width: 468px ) {
+
+    .tabela-estoque th:nth-child(10),
+    .tabela-estoque td:nth-child(10){
+        display: none;
+    }  
+}

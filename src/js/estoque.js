@@ -12,11 +12,16 @@ btnCadastro.addEventListener('click', () => {
 // carrega estoque salvo no localStorage
 let estoque = JSON.parse(localStorage.getItem("estoque")) || [];
 
+
+let linhasVisiveis = 15;
+
+
 // renderiza a tabela com os dados
 function renderTabela() {
   tabelaEstoque.innerHTML = "";
 
-  estoque.forEach((item, index) => {
+
+  estoque.slice(0, linhasVisiveis).forEach((item, index) => {
 
     let dataFormatada = "";
     if (item.data) {
@@ -49,6 +54,18 @@ function renderTabela() {
     `;
     tabelaEstoque.appendChild(tr);
   });
+
+  const btnMostrarMais = document.getElementById("btn-mostrar-mais");
+  if (estoque.length > linhasVisiveis) {
+    btnMostrarMais.style.display = "block";
+  } else {
+    btnMostrarMais.style.display = "none";
+  }
+
+  document.getElementById("btn-mostrar-mais").addEventListener("click", () => {
+  linhasVisiveis += 15; // aumenta mais 15 linhas
+  renderTabela();
+});
 
   // adiciona evento nos botões de excluir
   document.querySelectorAll(".btn-excluir").forEach(btn => {
