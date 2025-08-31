@@ -3,7 +3,24 @@ const btnAdicionar = document.getElementById("adicionar");
 const menuHum = document.querySelector(".menu-hum")
 const menu = document.querySelector(".menu")
 
+let timeout;
+const tempoInatividade = 10 * 60 * 1000;
 
+function resetarTime() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        alert('Sua sessão expirou por inatividade.');
+        window.location.href = "index.html";
+    }, tempoInatividade);
+}
+
+window.onload = resetarTime;
+document.onmousemove = resetarTime;
+document.onkeypress = resetarTime;
+document.onclick = resetarTime;
+document.onscroll = resetarTime;
+
+resetarTime()
 
 menuHum.addEventListener("click", () => {
     menu.classList.toggle("ativo")
@@ -96,7 +113,7 @@ function renderTabela() {
 
         if (mostrar) {
             const tr = document.createElement("tr");
-             tr.classList.add("nova-linha");
+            tr.classList.add("nova-linha");
 
             // cor do status
             let cor = "";
@@ -226,6 +243,8 @@ function excluirFechados() {
 
     alert("Todos os chamados fechados foram excluídos!");
 }
+
+
 
 
 

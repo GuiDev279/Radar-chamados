@@ -4,6 +4,24 @@ const btnCadastro = document.querySelector(".cadastrar")
 const tabelaManual = document.querySelector(".add-manual")
 const tabelaPerifericos = document.getElementById("perifericos")
 
+let timeout;
+const tempoInatividade = 10 * 60 * 1000;
+
+function resetarTime() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        alert('Sua sessão expirou por inatividade.');
+        window.location.href = "index.html";
+    }, tempoInatividade);
+}
+
+window.onload = resetarTime;
+document.onmousemove = resetarTime;
+document.onkeypress = resetarTime;
+document.onclick = resetarTime;
+document.onscroll = resetarTime;
+
+resetarTime()
 
 btnCadastro.addEventListener('click', () => {
    tabelaManual.classList.toggle("ativo")

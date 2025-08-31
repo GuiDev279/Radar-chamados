@@ -1,6 +1,25 @@
 const tabela = document.querySelector(".tabela-agendados tbody");
 const btnAdicionar = document.getElementById("adicionar");
 
+let timeout;
+const tempoInatividade = 10 * 60 * 1000;
+
+function resetarTime() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        alert('Sua sessão expirou por inatividade.');
+        window.location.href = "index.html";
+    }, tempoInatividade);
+}
+
+window.onload = resetarTime;
+document.onmousemove = resetarTime;
+document.onkeypress = resetarTime;
+document.onclick = resetarTime;
+document.onscroll = resetarTime;
+
+resetarTime()
+
 let agendados = JSON.parse(localStorage.getItem("agendados")) || [];
 renderTabela();
 

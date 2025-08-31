@@ -1,12 +1,14 @@
-function login(){
+function login() {
     const usuario = document.getElementById('login').value
     const senha = document.getElementById('senha').value
 
-    if (usuario === "admin" && senha === "teste"){
+    if (usuario === "admin" && senha === "teste") {
         localStorage.setItem('logado', 'true')
         window.location.href = "home.html";
-    }else {
+    } else {
         document.getElementById('erro').textContent = "Usuário ou senha inválidos!";
     }
 
 }
+
+
