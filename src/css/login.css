@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'MinhaFonteP';
+    src: url('../assets/fonts/Bing\ Bam\ Boum.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url(../imagens/ark.fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+}
+
+.container .login {
+    display: flex;
+    top: 40px;
+    border-radius: 20px;
+    flex-direction: column;
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+}
+
+.container .login .input {
+    width: 350px;
+    font-weight: 700;
+
+}
+
+.container .login .logo-login {
+    position: absolute;
+    top: 95px;
+    left: 125px;
+
+}
+
+
+.container .login .logo-ark {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+}
+
+.container .logo-ark {
+
+    animation: logo-ark infinite 20s linear;
+}
+
+@keyframes logo-ark {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.container .description {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: MinhaFonteP;
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: #fff;
+}
+
+#acessar {
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#acessar:hover {
+    transform: scale(1.2);
+    background-color: gray;
+    color: #fff;
+    ;
+}
+
+.error{
+    color: red;
+}

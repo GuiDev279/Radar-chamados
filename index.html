@@ -5,157 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./src/imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/responsiveHome.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <title>Radar Chamados</title>
+    <link rel="stylesheet" href="./src/css/login.css">
+    <title>Login</title>
 </head>
 
 <body>
-    <header class="cabecalho">
-        <img class="logo-principal" src="./src/imagens/logo.png" alt="logo">
-        <div class="menu-hum">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav >
-            <ul class="menu" >
-                <li><a class="titulo-estoque" href="./estoque.html" target="_blank">ESTOQUE</a></li>
-                <li><a class="titulo-agendado" href="./agendados.html" target="_blank">AGENDADOS</a></li>
-                <li><a class="titulo-tempo" title="Página em desenvolvimento" href="#">TEMPO DE VIDA</a></li>
-                <li><a class="titulo-dados" href="./base-de-dados.html">BASE DE DADOS</a></li>
-            </ul>
-        </nav>
-        <img class="ark" src="./src/imagens/favicon.ico" alt="logo-2">
-    </header>
-
     <main class="container">
-
-        <div class="tabela-container">
-            <table class="tabela">
-                <thead class="tabela-head">
-                    <tr>
-                        <th>DATA</th>
-                        <td><input style="width: 100%;" type="date" name="data" id="data"></td>
-                    </tr>
-                    <tr>
-                        <th>CHAMADO</th>
-                        <td>
-                            <input type="number" name="chamado" pattern="\\d{6}" maxlength="6"
-                                placeholder="número do chamado" id="chamado">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>HORA</th>
-                        <td><input style="width: 100%;" type="time" name="hora" title="Informe a hora" id="hora"></td>
-                    </tr>
-                    <tr>
-                        <th>LOCAL</th>
-                        <td>
-                            <select name="local" id="local">
-                                <option value="SEMINARIO">SEMINARIO</option>
-                                <option value="BRASILIA">BRASILIA</option>
-                                <option value="PISA">PISA</option>
-                                <option value="CEO">CEO</option>
-                                <option value="SIGMA">SIGMA</option>
-                                <option value="PIEDADE">PIEDADE</option>
-                                <option value="LUXEMBURGO">LUXEMBURGO</option>
-                                <option value="P.Alegre/RS">P.Alegre/RS</option>
-                                <option value="TRJ">TRJ</option>
-                                <option value="LAPA">LAPA</option>
-                                <option value="SAO BRAS/PA">SAO BRAS/PA</option>
-                                <option value="PALMAS/TO">PALMAS/TO</option>
-                                <option value="SALVADOR">SALVADOR</option>
-                                <option value="TS BARAO/CE">TS BARAO/CE</option>
-                                <option value="LOJA/SC">LOJA/SC</option>
-                                <option value="LOJA/DF">LOJA/DF</option>
-                                <option value="LOJA/GO">LOJA/GO</option>
-                                <option value="LOJA/SP">LOJA/SP</option>
-                                <option value="LOJA/PR">LOJA/PR</option>
-                                <option value="LOJA/CE">LOJA/CE</option>
-                                <option value="LOJA/BA">LOJA/BA</option>
-                                <option value="LOJA/PE">LOJA/PE</option>
-                            </select>
-                        </td>
-                    </tr>
-                </thead>
-            </table>
-            <img src="./src/imagens/adicionar.png" id="adicionar" class="adicionar"></img>
-
+        <div class="login">
+            <img class="logo-ark" src="./src/imagens/favicon.ico" alt="logo" style="width: 50px;">
+            <img class="logo-login" src="./src/imagens/logo-login.png" alt="logo-login-ark" style="width: 200px;">
+            <label class="input" for="login">Login:</label>
+            <input class="input" type="text" name="login" id="login">
+            <label class="input" for="senha">Senha:</label>
+            <input class="input" type="password" name="senha" id="senha">
+            <button onclick="login()" id="acessar">Entrar</button>
+            <div class="error" id="erro"></div>
         </div>
-        <div id="contadores">
-            <p>Aguardando cliente: <span id="aguardando">0</span></p>
-            <p>Em Atendimento: <span id="atendimento">0</span></p>
-            <p>Fechado: <span id="fechado">0</span></p>
+        <div class="description">
+            <h1>Bem vindo!</h1>
+            <p>Digite seus dados para acessar o sistema.</p>
         </div>
-
-        <section>
-            <table class="tabela-chamados">
-
-                <thead>
-                    <tr>
-                        <th colspan="6" class="titulo-tabela">
-
-                            <div class="header">
-                                <img class="logo-ark" src="./src/imagens/logo.png" alt="logo-tabela"
-                                    style="width: 130px;">
-
-                                <h3>STATUS CHAMADOS</h3>
-                                <div class="filtro">
-                                    <label for="filtro">Filtro</label>
-                                    <select id="filtro">
-                                        <option value=""></option>
-                                        <option value="todos">Todos</option>
-                                        <option value="aguardando">Aguardando Cliente</option>
-                                        <option value="atendimento">Em Atendimento</option>
-                                        <option value="abertos">Aguardando + Atendimento</option>
-                                        <option value="fechado">Fechado</option>
-                                        <option value="naoencontrado">Não encontrado</option>
-                                    </select>
-                                </div>
-                                <img src="./src/imagens/TIM.png" alt="logo-tim" style="width: 130px; height: 30px;">
-                                <button id="exportar">📂 Exportar Excel</button>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr class="planilha">
-                        <th>DATA
-
-                        </th>
-                        <th>CHAMADO</th>
-                        <th>HORA</th>
-                        <th>LOCAL</th>
-                        <th>MOTIVO</th>
-                        <th>
-                            STATUS
-                            <button id="excluirFechados" title="Excluir todos os chamados fechados">🗑️</button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
     </main>
-
-    <footer class="rodape">
-        &copy; GUILHERME - 2025 Radar Chamados. <br> Todos os direitos reservados.
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="./src/js/index.js"></script>
+    <script src="./src/js/login.js"></script>
 </body>
-
 </html>
