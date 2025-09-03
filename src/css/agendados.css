@@ -5,6 +5,8 @@
   font-style: normal;
 }
 
+
+
 .cabecalho{
     display: flex;
     align-items: center;
@@ -56,29 +58,22 @@
 }
 
 .tabela-container{
+    position: relative;
     display: flex;
     padding: 20px;
     gap: 25px;
 }
 
 .tabela-container #adicionar{
-    background: linear-gradient(to bottom, #aaa, #666);
-    height: 50px;
-    color: white;
-    font-weight: bold;
+    height: 25px;
     border: none;
-    padding: 15px 25px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px #333, -3px -3px 5px #999;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 .tabela-container #adicionar:hover{
-    background: linear-gradient(to bottom, #666, #aaa);
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
-
 
 .tabela-container .tabela{
     border-collapse: collapse;
@@ -139,4 +134,9 @@ input{
     border: none;
     color: #000;
     cursor: pointer;
+}
+
+#contadores{
+    position: absolute;
+    right: 50px;
 }

@@ -23,6 +23,24 @@ resetarTime()
 let agendados = JSON.parse(localStorage.getItem("agendados")) || [];
 renderTabela();
 
+function contarStatus() {
+    const statusCells = document.querySelectorAll(".tabela-agendados tbody tr td:last-child");
+
+    let agendado = 0;
+  
+
+    statusCells.forEach(cell => {
+        const texto = cell.textContent.trim().toUpperCase();
+
+        if (texto === "AGENDADO") {
+            agendado++;
+        }
+    });
+
+    document.getElementById("agendado").textContent = agendado;
+  }
+  contarStatus()
+
 btnAdicionar.addEventListener("click", () => {
   const dataInput = document.getElementById("data").value;
   const chamado = document.getElementById("chamado").value;
@@ -65,6 +83,7 @@ btnAdicionar.addEventListener("click", () => {
 
   // atualiza tabela
   renderTabela();
+  contarStatus();
 
   // Limpar campos
   document.getElementById("data").value = "";
@@ -96,6 +115,7 @@ function removerChamado(index) {
   agendados.splice(index, 1);
   localStorage.setItem("agendados", JSON.stringify(agendados));
   renderTabela();
+  contarStatus();
 }
 
 document.getElementById("exportar").addEventListener("click", exportarExcel);
@@ -116,3 +136,4 @@ function exportarExcel() {
   // baixa arquivo
   XLSX.writeFile(wb, "status_agendados.xlsx");
 }
+contarStatus()

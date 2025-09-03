@@ -165,9 +165,15 @@ function contarStatus() {
         }
     });
 
+    let agendados = JSON.parse(localStorage.getItem("agendados")) || [];
+    let qtdAgendados = agendados.length;
+
     document.getElementById("aguardando").textContent = aguardando;
     document.getElementById("atendimento").textContent = atendimento;
     document.getElementById("fechado").textContent = fechado;
+
+    const total = qtdAgendados + atendimento;
+    document.getElementById("total").textContent = total;
 }
 
 
@@ -244,8 +250,13 @@ function excluirFechados() {
     alert("Todos os chamados fechados foram excluídos!");
 }
 
+// pega o contador da aba agendados e atualiza na aba home
 
-
+window.addEventListener("storage", (event) => {
+    if (event.key === "agendados") {
+        contarStatus(); // recalcula os contadores assim que a lista for alterada
+    }
+});
 
 
 window.excluir = excluir;

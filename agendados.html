@@ -37,7 +37,7 @@
                     <tr>
                         <th>LOCAL</th>
                         <td>
-                             <select name="local" id="local">
+                            <select name="local" id="local">
                                 <option value="SEMINARIO">SEMINARIO</option>
                                 <option value="PISA">PISA</option>
                                 <option value="CEO">CEO</option>
@@ -53,6 +53,7 @@
                                 <option value="TS BARAO/CE">TS BARAO/CE</option>
                                 <option value="LOJA/SC">LOJA/SC</option>
                                 <option value="LOJA/DF">LOJA/DF</option>
+                                <option value="LOJA/RJ">LOJA/RJ</option>
                                 <option value="LOJA/GO">LOJA/GO</option>
                                 <option value="LOJA/SP">LOJA/SP</option>
                                 <option value="LOJA/PR">LOJA/PR</option>
@@ -64,7 +65,10 @@
                     </tr>
                 </thead>
             </table>
-            <button id="adicionar">ADICIONAR</button>
+            <img src="./src/imagens/adicionar.png" id="adicionar" class="adicionar"></img>
+            <div id="contadores">
+                <p>Agendados: <span id="agendado">0</span></p>
+            </div>
         </section>
         <section class="tabela-chamados">
             <table class="tabela-agendados">
