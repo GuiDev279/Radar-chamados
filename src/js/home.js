@@ -172,7 +172,7 @@ function contarStatus() {
     document.getElementById("atendimento").textContent = atendimento;
     document.getElementById("fechado").textContent = fechado;
 
-    const total = qtdAgendados + atendimento;
+    const total = qtdAgendados + aguardando;
     document.getElementById("total").textContent = total;
 }
 
