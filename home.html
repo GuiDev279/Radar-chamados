@@ -14,8 +14,12 @@
         rel="stylesheet">
     <title>Radar Chamados</title>
 </head>
-
 <body>
+    <div class="bolha" style="left:10%; animation-duration: 8s;"></div>
+    <div class="bolha" style="left:30%; animation-duration: 12s;"></div>
+    <div class="bolha" style="left:50%; animation-duration: 10s;"></div>
+    <div class="bolha" style="left:70%; animation-duration: 14s;"></div>
+    <div class="bolha" style="left:90%; animation-duration: 9s;"></div>
     <header class="cabecalho">
         <img class="logo-principal" src="./src/imagens/logo.png" alt="logo">
         <div class="menu-hum">
@@ -23,11 +27,10 @@
             <span></span>
             <span></span>
         </div>
-        <nav >
-            <ul class="menu" >
+        <nav>
+            <ul class="menu">
                 <li><a class="titulo-estoque" href="./estoque.html" target="_blank">ESTOQUE</a></li>
                 <li><a class="titulo-agendado" href="./agendados.html" target="_blank">AGENDADOS</a></li>
-                <li><a class="titulo-tempo" title="Página em desenvolvimento" href="#">TEMPO DE VIDA</a></li>
                 <li><a class="titulo-dados" href="./base-de-dados.html">BASE DE DADOS</a></li>
             </ul>
         </nav>
@@ -93,7 +96,7 @@
             <p>Aguardando cliente: <span id="aguardando">0</span></p>
             <p>Em Atendimento: <span id="atendimento">0</span></p>
             <p>Fechado: <span id="fechado">0</span></p>
-            <p title="soma dos agendados e aguardando cliente">Total: <span  id="total">0</span></p>
+            <p title="soma dos agendados e aguardando cliente">Total: <span id="total">0</span></p>
         </div>
 
         <section>
@@ -154,7 +157,7 @@
     </main>
 
     <footer class="rodape">
-       copyright &copy; GUILHERME - 2025 Radar Chamados. <br> Todos os direitos reservados.
+        copyright &copy; GUILHERME - 2025 Radar Chamados. <br> Todos os direitos reservados.
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="./src/js/home.js"></script>
