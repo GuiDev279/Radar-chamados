@@ -1,3 +1,10 @@
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      document.getElementById("acessar").click();
+    }
+  });
+
 function login() {
     const usuario = document.getElementById('login').value
     const senha = document.getElementById('senha').value
