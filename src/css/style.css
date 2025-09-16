@@ -9,14 +9,14 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #000;
     height: 80px;
 }
 
-.cabecalho nav{
-    display: flex;
-    
+.logo-principal{
+  position: absolute;
+  left: 10px;
 }
 
 .cabecalho .menu-hum{
@@ -119,11 +119,12 @@
 
 .cabecalho nav ul  li:hover{
     transform: scale(1.05);
-     background: linear-gradient(to bottom, #666, #aaa);
+    background: linear-gradient(to bottom, rgba(102, 102, 102, 0.4), rgba(170, 170, 170, 0.4));
 }
 
 .cabecalho .ark{
-    margin-right: 15px;
+    position: absolute;
+    right: 15px;
     animation: ark infinite 20s linear;
 }
 
@@ -220,6 +221,7 @@ section{
     color: #fff;
     text-align: center;
     line-height: 20px;
+    font-size: 12px;
 }
 
 .lixeira {
