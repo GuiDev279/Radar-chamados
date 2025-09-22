@@ -2,6 +2,25 @@ const tabela = document.querySelector(".tabela-chamados tbody");
 const btnAdicionar = document.getElementById("adicionar");
 const menuHum = document.querySelector(".menu-hum")
 const menu = document.querySelector(".menu")
+const btnAdicionarChamados = document.querySelector('.adicionar-chamados');
+const menuAdicionar = document.querySelector('.tabela-container');
+const btnFechar = document.getElementById('fechar');
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    btnAdicionarChamados.addEventListener('click', () => {
+        menuAdicionar.classList.add('ativo');
+        btnAdicionarChamados.style.display = 'none';
+    });
+});
+
+btnFechar.addEventListener('click', () => {
+    menuAdicionar.classList.remove('ativo');
+    btnAdicionarChamados.style.display = 'block';
+})
+
+
+
 
 let timeout;
 const tempoInatividade = 10 * 60 * 1000;

@@ -1,121 +1,130 @@
 @font-face {
   font-family: 'MinhaFonteP';
-  src: url('../assets/fonts/Bing\ Bam\ Boum.ttf') format('woff2');    
+  src: url('../assets/fonts/Bing\ Bam\ Boum.ttf') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
-.cabecalho{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    height: 80px;
+@font-face {
+  font-family: 'MinhaFonte';
+  src: url('../assets/fonts/Yourmate.ttf') format('woff2');    
+  font-weight: normal;
+  font-style: normal;
 }
 
-.logo-principal{
+.cabecalho {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  height: 80px;
+}
+
+.logo-principal {
   height: 60px;
   position: absolute;
   top: 15px;
   left: 10px;
 }
 
-.cabecalho .menu-hum{
-    position: absolute;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.3rem;
-    cursor: pointer;
-    }
-
-.menu-hum span{
-    display: none;
-    height: 4px;
-    width: 100%;
-    background-color: #fff;
+.cabecalho .menu-hum {
+  position: absolute;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  cursor: pointer;
 }
 
-.cabecalho nav ul{
-    display: flex;
-    gap: 15px;
-    text-align: center;
-    margin: 0 auto;
+.menu-hum span {
+  display: none;
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
 }
 
-.cabecalho nav ul  li  .titulo-estoque::after{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url("../imagens/estoque.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.cabecalho nav ul {
+  display: flex;
+  gap: 15px;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.cabecalho nav ul  li  .titulo-agendado::after{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url("../imagens/cronograma.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.cabecalho nav ul li .titulo-estoque::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../imagens/estoque.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.cabecalho nav ul  li  .titulo-dados::after{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url("../imagens/armazenamento-de-banco-de-dados.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.cabecalho nav ul li .titulo-agendado::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../imagens/cronograma.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.cabecalho nav ul  li  .titulo-tempo::after{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url("../imagens/registro-de-tempo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.cabecalho nav ul li .titulo-dados::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../imagens/armazenamento-de-banco-de-dados.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cabecalho nav ul li .titulo-tempo::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../imagens/registro-de-tempo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
-.cabecalho nav ul  li a{
-    font-size: 14px;
-    width: 150px;
-    display: flex;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.cabecalho nav ul li a {
+  font-size: 14px;
+  width: 150px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
-.cabecalho nav ul  li{
-    font-size: 14px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-weight: bold;
-    gap: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition:  0.3s ease-in-out;
-    
+.cabecalho nav ul li {
+  font-size: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  gap: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
 }
-.cabecalho nav ul  li:hover {
-  text-decoration: underline;  /* adiciona de novo no hover */
+
+.cabecalho nav ul li:hover {
+  text-decoration: underline;
+  /* adiciona de novo no hover */
 }
 
 
@@ -124,115 +133,120 @@
     background: linear-gradient(to bottom, rgba(102, 102, 102, 0.4), rgba(170, 170, 170, 0.4));
 } */
 
-.cabecalho .ark{
-    position: absolute;
-    right: 15px;
-    animation: ark infinite 20s linear;
+.cabecalho .ark {
+  position: absolute;
+  right: 15px;
+  animation: ark infinite 20s linear;
 }
 
 @keyframes ark {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.container{
-    background-image: url("../imagens/ark.fundo.png");
-    min-height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative;
+.container {
+  background-image: url("../imagens/ark.fundo.png");
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
 }
 
-.tabela-container{
-    display: flex;
-    padding: 20px;
-    gap: 25px;
+.tabela-container {
+  display: none;
+  padding: 20px;
+  gap: 25px;
 }
 
-.tabela-container .adicionar{
-    height: 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+.tabela-container .adicionar {
+  height: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-.tabela-container .adicionar:hover{
-    transform: scale(1.2);
+.tabela-container .adicionar:hover {
+  transform: scale(1.2);
 }
 
 
-.container .tabela{
-    border-collapse: collapse;
+.container .tabela {
+
+  border-collapse: collapse;
 }
 
 .tabela-head th,
-.tabela-head td{
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #000;
+.tabela-head td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #000;
 }
 
-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.tabela-chamados{
-    border-collapse: collapse;
-    margin-bottom: 30px;
+.tabela-chamados {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
-.tabela-chamados .titulo-tabela{
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+.tabela-chamados .titulo-tabela {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 
 
 .tabela-chamados th,
-.tabela-chamados td{
-    width: 150px;
-    height: 40px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #000;
+.tabela-chamados td {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #000;
 }
 
-.titulo-tabela .header{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+.titulo-tabela .header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.rodape{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    min-height: 10vh;
-    color: #fff;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
+.rodape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  min-height: 10vh;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
 }
 
 .lixeira {
   cursor: pointer;
-  font-size: 14px;   /* pode diminuir o tamanho */
+  font-size: 14px;
+  /* pode diminuir o tamanho */
 }
 
 .lixeira:hover {
-  color: red;        /* fica vermelha ao passar o mouse */
+  color: red;
+  /* fica vermelha ao passar o mouse */
 }
 
 input.uppercase {
@@ -241,56 +255,58 @@ input.uppercase {
 }
 
 #contadores {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    gap: 5px;
-    color: #fff;
-    top: 8px;
-    right: 15px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  gap: 5px;
+  color: #fff;
+  top: 8px;
+  right: 15px;
 }
 
-.filtro{
-    display: flex;
-    position: absolute;
-    align-items: center;
-    right: 160px;
-    gap: 10px;
-    font-size: 15px;
+.filtro {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  right: 160px;
+  gap: 10px;
+  font-size: 15px;
 }
 
 .filtro #filtro {
-    width: 10px;
-    padding: 5px;
-    border: none;
-    background: none;
+  width: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
 }
 
 #exportar {
-    display: flex;
-    position: absolute;
-    right: -10px;
-    top: -33px;
-    background: none;
-    border: none;
-    color: #000;
-    cursor: pointer;
+  display: flex;
+  position: absolute;
+  right: -10px;
+  top: -33px;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
 }
 
-#excluirFechados{
-    margin-left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
+#excluirFechados {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px); /* entra de cima */
+    transform: translateY(-10px);
+    /* entra de cima */
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -301,33 +317,68 @@ input.uppercase {
   animation: fadeIn 0.5s ease forwards;
 }
 
-ul.ativo{
-    display: flex !important;
+ul.ativo {
+  display: flex !important;
 }
 
 
- .bolha {
-      position: absolute;
-      bottom: -100px;
-      width: 50px;
-      height: 50px;
-      background: url(../imagens/favicon.ico) no-repeat center;
-      background-size: contain;
-      animation: subir 10s linear infinite;
-      opacity: 0.8;
-    }
+.bolha {
+  position: absolute;
+  bottom: -100px;
+  width: 50px;
+  height: 50px;
+  background: url(../imagens/favicon.ico) no-repeat center;
+  background-size: contain;
+  animation: subir 10s linear infinite;
+  opacity: 0.8;
+}
 
-    /* Animação de subida */
-    @keyframes subir {
-      0% {
-        transform: translateY(0) scale(0.5);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1);
-        
-      }
-    }
+/* Animação de subida */
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1);
+
+  }
+}
+
+.adicionar-chamados {
+  font-family: 'MinhaFonte', sans-serif;
+  color: #fff;
+  position: absolute;
+  left: 30px;
+  border-radius: 5px;
+  margin: 30px auto;
+  width: 150px;
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
+    0 4px 16px rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.adicionar-chamados:hover{
+  transform: scale(1.2);
+}
+
+#fechar{
+  border: none;
+  background: none;
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.ativo {
+  display: flex;
+}
