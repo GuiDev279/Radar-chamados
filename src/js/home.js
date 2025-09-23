@@ -5,7 +5,16 @@ const menu = document.querySelector(".menu")
 const btnAdicionarChamados = document.querySelector('.adicionar-chamados');
 const menuAdicionar = document.querySelector('.tabela-container');
 const btnFechar = document.getElementById('fechar');
+const engrenagem = document.querySelector('.ark');
+const contadores = document.getElementById('contadores');
 
+document.addEventListener("DOMContentLoaded", () => {
+    engrenagem.addEventListener("click", () => {
+        console.log('clicou')
+
+        contadores.classList.toggle('ativo')
+    })
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     btnAdicionarChamados.addEventListener('click', () => {

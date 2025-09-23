@@ -24,6 +24,7 @@
 .logo-principal {
   height: 60px;
   position: absolute;
+  cursor: pointer;
   top: 15px;
   left: 10px;
 }
@@ -135,6 +136,7 @@
 
 .cabecalho .ark {
   position: absolute;
+  cursor: pointer;
   right: 15px;
   animation: ark infinite 20s linear;
 }
@@ -260,11 +262,15 @@ input.uppercase {
   position: absolute;
   display: none;
   flex-direction: column;
+  padding: 10px;
+  z-index: 1;
   font-size: 15px;
   gap: 5px;
+  border-radius: 10px;
   color: #fff;
-  top: 8px;
-  right: 15px;
+  right: 0px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
+    0 4px 16px rgba(255, 255, 255, 0.1);
 }
 
 .filtro {
@@ -381,6 +387,10 @@ ul.ativo {
   cursor: pointer;
 }
 
+#contadores.ativo {
+  display: block;
+}
+
 .ativo {
-  display: flex;
+  display: flex !important;
 }
