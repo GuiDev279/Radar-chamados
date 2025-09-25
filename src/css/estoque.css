@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'MinhaFonte';
-  src: url('../assets/fonts/Yourmate.ttf') format('woff2');    
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'MinhaFonte';
+    src: url('../assets/fonts/Yourmate.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.cabecalho{
+.cabecalho {
     position: relative;
     padding: 10px 20px 5px 5px;
     display: flex;
@@ -15,14 +15,14 @@
     color: #fff;
 }
 
-.cabecalho h1{
+.cabecalho h1 {
     left: 45%;
     position: absolute;
     font-family: MinhaFonte, sans-serif;
     letter-spacing: 2px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -34,45 +34,44 @@
     padding-bottom: 30px;
 }
 
-.add-manual{
+.add-manual {
     padding-top: 30px;
     margin-bottom: 30px;
     border-collapse: collapse;
-    display: flex;
     justify-content: center;
     display: none;
 }
 
 .add-manual th,
-.add-manual td{
+.add-manual td {
     width: 100px;
     border: solid 1px #000;
     padding: 10px;
 }
 
-.add-manual input.uppercase{
+.add-manual input.uppercase {
     text-transform: uppercase !important;
     text-align: center;
 }
 
-.add-manual input{
+.add-manual input {
     width: 100%;
 
 }
 
-.planilha-estoque{
+.planilha-estoque {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
 
- .tabela-estoque{
-    
+.tabela-estoque {
+
     justify-content: center;
     border-collapse: collapse;
 }
 
-.tabela-estoque .cabecalho-tabela{
+.tabela-estoque .cabecalho-tabela {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,60 +81,68 @@
 
 .tabela-estoque tr,
 .tabela-estoque th,
-.tabela-estoque td{
+.tabela-estoque td {
     text-align: center;
     width: 100px;
     border: solid 1px #000;
-} 
+}
 
-.cabecalho-tabela .ark{
+.cabecalho-tabela .ark {
     animation: ark infinite 20s linear;
 }
 
 @keyframes ark {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.btn-excluir{
+.btn-excluir {
     border: none;
     background: none;
     cursor: pointer;
 }
 
-.cabecalho-tabela .export{
+.cabecalho-tabela .export {
     position: absolute;
     left: 5px;
 }
 
 
 .export {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 .exportar {
-  display: inline-block;
-  
-  color: #000;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
+    display: inline-block;
+
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
 .exportar:hover {
-  background: #ccc;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    /* efeito vidro */
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.tabela-manual{
+
+.tabela-manual {
     position: relative;
 }
 
-.img-add{
+.img-add {
     position: absolute;
     top: 5px;
     padding: 5px;
@@ -144,12 +151,12 @@
     transition: 0.2s ease-in-out;
 }
 
-.img-add:hover{
+.img-add:hover {
     transform: scale(1.2);
 }
 
 
-.cadastrar{
+.cadastrar {
     position: absolute;
     top: 9px;
     right: 30px;
@@ -157,24 +164,30 @@
     cursor: pointer;
     border: none;
     padding: 8px 16px;
+    transition: 0.2s ease-in-out;
 }
 
-.cadastrar:hover{
-    background: #ccc;
-    border-radius: 5px;
+.cadastrar:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    /* efeito vidro */
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-.ativo{
+.ativo {
     display: flex;
 }
 
-.cabecalho .titulo{
+.cabecalho .titulo {
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-.cabecalho .titulo::after{
+.cabecalho .titulo::after {
     content: "";
     display: inline-block;
     background-image: url("../imagens/estoque.png");
@@ -184,41 +197,41 @@
     background-repeat: no-repeat;
 }
 
-.container .perifericos{
+.container .perifericos {
     display: flex;
 }
 
-.container #perifericos{
+.container #perifericos {
     display: none;
     border-collapse: collapse;
     margin-left: 80px;
-    margin-top: 25px; 
-    margin-bottom: 20px;  
-    
+    margin-top: 25px;
+    margin-bottom: 20px;
+
 }
 
-.container #perifericos input{
+.container #perifericos input {
     font-family: MinhaFonte, sans-serif;
     width: 100%;
     text-align: center;
     color: darkred;
 }
 
-.container #perifericos th{
+.container #perifericos th {
     background-color: darkred;
     color: #fff;
 }
 
 .container #perifericos th,
-.container #perifericos td{
-   font-family: MinhaFonte;
+.container #perifericos td {
+    font-family: MinhaFonte;
     width: 225px;
     height: 30px;
     border: solid 1px #000;
     padding: 0 6px 0 6px;
 }
 
-.btn-ver-periferico{
+.btn-ver-periferico {
     position: absolute;
     right: 20%;
     color: #fff;
@@ -230,17 +243,17 @@
     transition: 0.3s ease-in-out;
 }
 
-.btn-ver-periferico:hover{
+.btn-ver-periferico:hover {
     background: linear-gradient(to bottom, #666, #aaa);
     transform: scale(1.05);
     color: #fff;
 }
 
-.ver-perifericos{
+.ver-perifericos {
     display: block !important;
 }
 
-#btn-mostrar-mais{
+#btn-mostrar-mais {
     border-radius: 5px;
     margin: 30px auto;
     width: 150px;
@@ -249,10 +262,24 @@
     padding: 8px 14px;
     cursor: pointer;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
-                0 4px 16px rgba(255, 255, 255, 0.1); /* brilho suave */  /* sombra difusa */;
+        0 4px 16px rgba(255, 255, 255, 0.1);
+    /* brilho suave */
+    /* sombra difusa */
+    ;
     transition: 0.3s ease-in-out;
 }
 
-#btn-mostrar-mais:hover{
+#btn-mostrar-mais:hover {
     transform: scale(1.2);
+}
+
+.btn-fechar {
+    display: none;
+    position: absolute;
+    width: 30px;;
+    height: 30px;
+    border: none;
+    background: none;
+    left: 9px;
+    cursor: pointer;
 }

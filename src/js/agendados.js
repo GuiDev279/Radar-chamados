@@ -1,5 +1,21 @@
 const tabela = document.querySelector(".tabela-agendados tbody");
 const btnAdicionar = document.getElementById("adicionar");
+const btnMostrarTabela = document.querySelector('.adicionar-chamados');
+const tabelaAdd = document.querySelector('.tabela')
+const btnFechar = document.querySelector('.fechar')
+
+btnMostrarTabela.addEventListener('click', () => {
+   tabelaAdd.style.display = "flex"
+   btnAdicionar.style.display = "block"
+    btnFechar.style.display = "block"
+})
+
+btnFechar.addEventListener('click',() => {
+  tabelaAdd.style.display = "none"
+   btnAdicionar.style.display = "none"
+    btnFechar.style.display = "none"
+})
+
 
 let timeout;
 const tempoInatividade = 10 * 60 * 1000;

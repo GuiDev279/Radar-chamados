@@ -65,6 +65,7 @@
 }
 
 .tabela-container #adicionar{
+    display: none;
     height: 25px;
     border: none;
     cursor: pointer;
@@ -76,6 +77,7 @@
 }
 
 .tabela-container .tabela{
+    display: none;
     border-collapse: collapse;
 }
 
@@ -139,4 +141,35 @@ input{
 #contadores{
     position: absolute;
     right: 50px;
+}
+
+.adicionar-chamados {
+  font-family: 'MinhaFonte', sans-serif;
+  color: #fff;
+  position: absolute;
+  right: 120px;
+  border-radius: 5px;
+  margin: 30px auto;
+  width: 150px;
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
+    0 4px 16px rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.adicionar-chamados:hover{
+  transform: scale(1.2);
+}
+
+.fechar{
+    display: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
 }

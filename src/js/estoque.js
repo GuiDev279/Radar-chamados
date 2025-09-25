@@ -3,6 +3,7 @@ const tabelaEstoque = document.querySelector(".tabela-estoque tbody");
 const btnCadastro = document.querySelector(".cadastrar")
 const tabelaManual = document.querySelector(".add-manual")
 const tabelaPerifericos = document.getElementById("perifericos")
+const btnFechar = document.querySelector(".btn-fechar")
 
 let timeout;
 const tempoInatividade = 10 * 60 * 1000;
@@ -24,7 +25,15 @@ document.onscroll = resetarTime;
 resetarTime()
 
 btnCadastro.addEventListener('click', () => {
-   tabelaManual.classList.toggle("ativo")
+   tabelaManual.classList.add("ativo")
+   btnFechar.style.display = "block"
+   btnCadastro.style.display = "none"
+})
+
+btnFechar.addEventListener('click', () => {
+    tabelaManual.classList.remove("ativo")
+    btnFechar.style.display = "none"
+    btnCadastro.style.display = "block"
 })
 
 // carrega estoque salvo no localStorage
