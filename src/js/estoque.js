@@ -69,6 +69,7 @@ function renderTabela() {
       <td>${item.marca.toUpperCase()}</td>
       <td>${item.modelo.toUpperCase()}</td>
       <td>${item.condicao.toUpperCase()}</td>
+      <td>${item.sku.toUpperCase()}</td>
       <td>${item.nf.toUpperCase()}</td>
       <td>${item.matricula.toUpperCase()}</td>
       <td>
@@ -121,6 +122,7 @@ btnAdd.addEventListener("click", () => {
     marca: document.getElementById("marca").value,
     modelo: document.getElementById("modelo").value,
     condicao: document.getElementById("condicao").value,
+    sku: document.getElementById("sku").value,
     nf: document.getElementById("nf").value,
     matricula: document.getElementById("matricula").value,
     status: document.getElementById("status").value

@@ -129,6 +129,14 @@ function buscarDadosNaBase(numeroChamado) {
 function renderTabela() {
     tabela.innerHTML = "";
     const filtro = document.getElementById("filtro").value;
+
+        // 🔴 1️⃣ Detectar duplicados
+    const contagemChamados = {};
+    chamados.forEach(c => {
+        contagemChamados[c.chamado] = (contagemChamados[c.chamado] || 0) + 1;
+    });
+
+
     chamados.forEach((c, index) => {
         let mostrar = true;
 
@@ -149,6 +157,12 @@ function renderTabela() {
             if (c.status === "EM ATENDIMENTO") cor = "orange";
             if (c.status === "FECHADO") cor = "green";
             if (c.status === "Não encontrado") cor = "gray";
+
+            // 🔴 2️⃣ Se for duplicado, aplica destaque
+            if (contagemChamados[c.chamado] > 1) {
+                tr.style.color = "red"; // vermelho 
+                tr.title = "Chamado duplicado!";
+            }
 
             tr.innerHTML = `
                 <td>
@@ -201,7 +215,7 @@ function contarStatus() {
     document.getElementById("agendado").textContent = qtdAgendados
     document.getElementById("fechado").textContent = fechado;
 
-    const total = qtdAgendados + aguardando;
+    const total = qtdAgendados + atendimento + aguardando + fechado;
     document.getElementById("total").textContent = total;
 }
 
