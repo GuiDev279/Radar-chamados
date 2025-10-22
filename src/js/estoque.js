@@ -5,6 +5,61 @@ const tabelaManual = document.querySelector(".add-manual")
 const tabelaPerifericos = document.getElementById("perifericos")
 const btnFechar = document.querySelector(".btn-fechar")
 
+// === IMPORTAR PLANILHA ===
+document.getElementById("importar").addEventListener("change", importarPlanilha);
+
+function importarPlanilha(event) {
+  const arquivo = event.target.files[0];
+  if (!arquivo) return;
+
+  const leitor = new FileReader();
+
+  leitor.onload = function(e) {
+    const dados = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(dados, { type: "array" });
+
+    // pega a primeira planilha
+    const primeiraAba = workbook.SheetNames[0];
+    const planilha = workbook.Sheets[primeiraAba];
+
+    // converte em array de objetos
+    const dadosImportados = XLSX.utils.sheet_to_json(planilha, { defval: "" });
+
+    if (dadosImportados.length === 0) {
+      alert("A planilha está vazia!");
+      return;
+    }
+
+    // sobrescreve o estoque atual com os dados importados
+    estoque = dadosImportados.map(item => ({
+      serial: item.serial || "",
+      patrimonio: item.patrimonio || "",
+      legado: item.legado || "",
+      data: item.data || "",
+      tipo: item.tipo || "",
+      marca: item.marca || "",
+      modelo: item.modelo || "",
+      condicao: item.condicao || "",
+      sku: item.sku || "",
+      nf: item.nf || "",
+      matricula: item.matricula || "",
+      status: item.status || ""
+    }));
+
+    salvarEstoque();
+    renderTabela();
+
+    alert("Planilha importada com sucesso!");
+  };
+
+  leitor.readAsArrayBuffer(arquivo);
+}
+
+
+
+
+
+
 let timeout;
 const tempoInatividade = 10 * 60 * 1000;
 

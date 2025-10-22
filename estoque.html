@@ -27,7 +27,7 @@
     </header>
     <main class="container">
         <div class="perifericos">
-            
+
             <table id="perifericos">
                 <thead>
                     <tr>
@@ -80,7 +80,7 @@
                         <td>SUPORTE ERGONOMICO</td>
                         <td><input type="number"></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>KIT BOAS-VINDAS</td>
                         <td><input type="number"></td>
                     </tr>
@@ -88,7 +88,7 @@
             </table>
         </div>
         <section class="tabela-manual">
-            
+
             <table class="add-manual">
                 <button class="btn-fechar">X</button>
                 <tr>
@@ -104,7 +104,8 @@
                     <th>NF</th>
                     <th>MATRICULA</th>
                     <th>STATUS
-                        <img id="btn-add" title="Adicionar" class="img-add" style="width: 25px;" src="./src/imagens/adicionar.png" alt="">
+                        <img id="btn-add" title="Adicionar" class="img-add" style="width: 25px;"
+                            src="./src/imagens/adicionar.png" alt="">
                     </th>
                 </tr>
                 <tr>
@@ -128,7 +129,7 @@
                         <select name="marca" id="marca">
                             <option value="lenovo">LENOVO</option>
                             <option value="dell">DELL</option>
-                            <option value="hp">HP</option>  
+                            <option value="hp">HP</option>
                         </select>
                     </td>
                     <td>
@@ -156,13 +157,13 @@
                     <td>
                         <select name="status" id="status">
                             <option value="em-uso">Em uso</option>
-                            <option value="Estoque">Estoque</option> 
+                            <option value="Estoque">Estoque</option>
                         </select>
 
                     </td>
-                    
+
                 </tr>
-                
+
             </table>
 
         </section>
@@ -175,6 +176,10 @@
                                 <div class="export">
                                     <label for="export" class="exportar">📂 Exportar Planilha</label>
                                     <input id="export" accept=".xlsx, .xls, .csv" hidden>
+                                </div>
+                                <div class="import">
+                                    <label for="importar" class="importar">📂 Importar Planilha</label>
+                                    <input type="file" id="importar" accept=".xlsx, .xls" style="display: none;">
                                 </div>
                                 <img src="./src/imagens/favicon.ico" alt="logo-ark" class="ark">
                                 <h2>ESTOQUE</h2>
@@ -199,7 +204,7 @@
                 </thead>
                 <tbody class="corpo"></tbody>
             </table>
-            
+
         </section>
         <button id="btn-mostrar-mais">Mostrar mais</button>
     </main>
