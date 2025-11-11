@@ -180,11 +180,13 @@ function renderTabela() {
                 <td style="color:${cor}">${c.status}</td>
             `;
             tabela.appendChild(tr);
+            
         }
 
 
     });
     contarStatus();
+    buscarDadosNaBase();
 }
 document.getElementById("filtro").addEventListener("change", renderTabela);
 

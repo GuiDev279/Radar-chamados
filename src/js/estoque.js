@@ -46,6 +46,9 @@ function importarPlanilha(event) {
       status: item.status || ""
     }));
 
+    // estoque = [...estoque, ...dadosImportados.map(item => ({ ... }))];  - para adicionar sem sobrescrever
+
+
     salvarEstoque();
     renderTabela();
 
