@@ -130,7 +130,7 @@ function renderTabela() {
     tabela.innerHTML = "";
     const filtro = document.getElementById("filtro").value;
 
-        // 🔴 1️⃣ Detectar duplicados
+    // 🔴 1️⃣ Detectar duplicados
     const contagemChamados = {};
     chamados.forEach(c => {
         contagemChamados[c.chamado] = (contagemChamados[c.chamado] || 0) + 1;
@@ -180,7 +180,7 @@ function renderTabela() {
                 <td style="color:${cor}">${c.status}</td>
             `;
             tabela.appendChild(tr);
-            
+
         }
 
 
@@ -252,6 +252,10 @@ function atualizarChamadosComBase() {
         if (encontrado) {
             chamado.motivo = encontrado.MOTIVO;
             chamado.status = encontrado.ESTADO;
+        } else {
+            // 🔄 Se o chamado não estiver mais na base, marcar como "Não encontrado"
+            chamado.motivo = "Não encontrado";
+            chamado.status = "Não encontrado";
         }
     });
 
